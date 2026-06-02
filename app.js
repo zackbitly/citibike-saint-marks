@@ -236,30 +236,39 @@ async function loadTrips() {
   } catch (_) {
     TRIPS = [];
   }
-  const dates = TRIPS.map((t) => t.date).sort();
-  const fromEl = document.getElementById("trips-from");
-  const toEl = document.getElementById("trips-to");
-  if (dates.length) {
-    fromEl.value = dates[0];
-    toEl.value = dates[dates.length - 1];
-  }
+  // Build the month dropdown from the months present in the data.
+  const sel = document.getElementById("trips-month");
+  const months = [...new Set(TRIPS.map((t) => t.date.slice(0, 7)))].sort();
+  sel.innerHTML = '<option value="all">All available months</option>' +
+    months.slice().reverse().map((m) => `<option value="${m}">${monthLabel(m)}</option>`).join("");
+  // Default to the most recent month.
+  sel.value = months.length ? months[months.length - 1] : "all";
   renderTrips();
 }
 
+const MONTH_NAMES = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"];
+function monthLabel(ym) {
+  const [y, m] = ym.split("-");
+  return `${MONTH_NAMES[+m - 1]} ${y}`;
+}
+
 function renderTrips() {
-  const from = document.getElementById("trips-from").value;
-  const to = document.getElementById("trips-to").value;
+  const month = document.getElementById("trips-month").value;
   const tbody = document.getElementById("trips-tbody");
   const summary = document.getElementById("trips-summary");
   tbody.innerHTML = "";
 
-  const inRange = TRIPS.filter((t) => (!from || t.date >= from) && (!to || t.date <= to));
+  const inRange = month === "all"
+    ? TRIPS
+    : TRIPS.filter((t) => t.date.slice(0, 7) === month);
   // Same day-count denominator for every station: distinct dates present in range.
   const days = new Set(inRange.map((t) => t.date)).size;
 
+  const scope = month === "all" ? "all available months" : monthLabel(month);
   summary.textContent = TRIPS.length === 0
     ? "Trip data not available yet."
-    : `${days} day(s) of trip data in range ${from} → ${to}.`;
+    : `${days} day(s) of trip data · ${scope}.`;
 
   const totals = { out: 0, in: 0 };
   const byStation = new Map(STATIONS.map((s) => [s.name, { out: 0, in: 0 }]));
@@ -314,6 +323,6 @@ function renderTrips() {
 
   document.getElementById("refresh-btn").addEventListener("click", loadLive);
   document.getElementById("apply-range").addEventListener("click", renderAverages);
-  document.getElementById("trips-apply").addEventListener("click", renderTrips);
+  document.getElementById("trips-month").addEventListener("change", renderTrips);
   setInterval(loadLive, REFRESH_MS);
 })();

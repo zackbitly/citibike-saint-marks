@@ -52,27 +52,40 @@ def download(ym):
         url = BASE.format(ym=ym)
         print(f"  downloading {url} ...")
         req = urllib.request.Request(url, headers={"User-Agent": "citibike-saint-marks/1.0 (build_trips)"})
-        with urllib.request.urlopen(req, timeout=300) as r, open(zpath, "wb") as f:
+        with urllib.request.urlopen(req, timeout=600) as r, open(zpath, "wb") as f:
             f.write(r.read())
     with zipfile.ZipFile(zpath) as z:
         z.extractall(WORKDIR)
-    return sorted(glob.glob(os.path.join(WORKDIR, f"{ym}-citibike-tripdata*.csv")))
+    # Inner CSVs are named "<ym>-citibike-tripdata_1.csv" (older) or
+    # "<ym>-citibike-tripdata-part1.csv" (newer); the glob covers both.
+    return zpath, sorted(glob.glob(os.path.join(WORKDIR, f"{ym}-citibike-tripdata*.csv")))
 
 
-def aggregate_month(ym, names):
+def aggregate_month(ym, names, keep_files=False):
     # records[date][station] = {"out": n, "in": n}
     recs = defaultdict(lambda: defaultdict(lambda: {"out": 0, "in": 0}))
     rows = 0
-    for fn in download(ym):
+    zpath, csvs = download(ym)
+    for fn in csvs:
         with open(fn, newline="") as f:
-            for r in csv.DictReader(f):
+            reader = csv.reader(f)
+            header = next(reader)
+            ix = {c: i for i, c in enumerate(header)}
+            i_ss, i_es = ix["start_station_name"], ix["end_station_name"]
+            i_st, i_et = ix["started_at"], ix["ended_at"]
+            for row in reader:
                 rows += 1
-                ss = r["start_station_name"]
-                es = r["end_station_name"]
-                if ss in names:
-                    recs[r["started_at"][:10]][ss]["out"] += 1
-                if es in names:
-                    recs[r["ended_at"][:10]][es]["in"] += 1
+                if row[i_ss] in names:
+                    recs[row[i_st][:10]][row[i_ss]]["out"] += 1
+                if row[i_es] in names:
+                    recs[row[i_et][:10]][row[i_es]]["in"] += 1
+    if not keep_files:
+        # Bound disk usage when building many months: drop the extracted CSVs
+        # and the zip once aggregated (re-downloaded on demand if needed).
+        for fn in csvs:
+            os.remove(fn)
+        if os.path.exists(zpath):
+            os.remove(zpath)
     print(f"  {ym}: scanned {rows:,} trips; {len(recs)} day(s) touched our stations")
     return recs
 
