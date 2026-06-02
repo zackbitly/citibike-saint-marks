@@ -34,10 +34,12 @@ async function loadStations() {
 }
 
 function initMap(origin) {
-  map = L.map("map", { scrollWheelZoom: false });
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution: '&copy; OpenStreetMap contributors',
+  map = L.map("map", { scrollWheelZoom: false, zoomControl: true });
+  // CARTO "Voyager" basemap: clean, light, Google-Maps-like, no API key.
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+    maxZoom: 20,
+    subdomains: "abcd",
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
   }).addTo(map);
   markerLayer = L.layerGroup().addTo(map);
 
@@ -47,7 +49,11 @@ function initMap(origin) {
   }).addTo(map).bindPopup(`<strong>${origin.label}</strong>`);
 
   const pts = STATIONS.map((s) => [s.lat, s.lng]).concat([[origin.lat, origin.lng]]);
-  map.fitBounds(L.latLngBounds(pts).pad(0.15));
+  const bounds = L.latLngBounds(pts).pad(0.15);
+  map.fitBounds(bounds);
+  // Safeguard: if the container was sized late (e.g. fonts/layout settling),
+  // recompute size and re-fit so the map never gets stuck zoomed out.
+  setTimeout(() => { map.invalidateSize(); map.fitBounds(bounds); }, 300);
 }
 
 async function loadLive() {
