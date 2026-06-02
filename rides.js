@@ -10,6 +10,16 @@ let map, rideLayer, stationLayer;
 const MONTH_NAMES = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
 
+// dow is 0=Mon .. 6=Sun (Python datetime.weekday()).
+const DOW_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const DOW_FULL = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+function hourLabel(h) {
+  const ampm = h < 12 ? "am" : "pm";
+  const h12 = h % 12 === 0 ? 12 : h % 12;
+  return `${h12} ${ampm}`;
+}
+
 function year(r) { return (r.date || "").slice(0, 4); }
 function ym(r) { return (r.date || "").slice(0, 7); }
 function pairKey(r) { return `${r.start.name} → ${r.end.name}`; }
@@ -70,6 +80,8 @@ function render() {
   renderSummary(sel, inRange);
   renderStats(inRange);
   renderTopRoutes(inRange);
+  renderHourChart(inRange);
+  renderDowChart(inRange);
   renderMap(inRange);
 }
 
@@ -167,6 +179,44 @@ function renderTopRoutes(rides) {
     `<table class="routes-table"><thead><tr>` +
     `<th class="route">Route</th><th class="num">Rides</th><th class="num">Avg</th>` +
     `</tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+// Vertical bar chart from divs (no chart lib). items: [{label, count, full}],
+// where `label` is the (possibly blank) axis tick and `full` the tooltip name.
+function renderBars(elId, items) {
+  const el = document.getElementById(elId);
+  el.innerHTML = "";
+  const total = items.reduce((a, i) => a + i.count, 0);
+  if (total === 0) {
+    el.innerHTML = `<p class="chart-empty">No time-of-day data for this range.</p>`;
+    return;
+  }
+  const max = Math.max(1, ...items.map((i) => i.count));
+  el.innerHTML = items.map((i) => {
+    const h = i.count ? Math.max(3, Math.round(100 * i.count / max)) : 0;
+    return `<div class="bar" title="${i.full}: ${i.count} ride(s)">` +
+      `<div class="bar-track"><div class="bar-fill" style="height:${h}%"></div></div>` +
+      `<div class="bar-label">${i.label}</div>` +
+    `</div>`;
+  }).join("");
+}
+
+// Ride starts by hour of day (0–23). Only a few hours are labelled to keep the
+// 24-bar axis legible; every bar still shows its exact count on hover.
+function renderHourChart(rides) {
+  const counts = new Array(24).fill(0);
+  for (const r of rides) if (r.hour != null) counts[r.hour] += 1;
+  const ticks = { 0: "12a", 6: "6a", 12: "12p", 18: "6p", 23: "11p" };
+  const items = counts.map((c, h) => ({ label: ticks[h] || "", count: c, full: hourLabel(h) }));
+  renderBars("hour-chart", items);
+}
+
+// Ride starts by day of week (Mon–Sun).
+function renderDowChart(rides) {
+  const counts = new Array(7).fill(0);
+  for (const r of rides) if (r.dow != null) counts[r.dow] += 1;
+  const items = counts.map((c, i) => ({ label: DOW_NAMES[i], count: c, full: DOW_FULL[i] }));
+  renderBars("dow-chart", items);
 }
 
 function renderMap(rides) {
