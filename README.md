@@ -1,7 +1,7 @@
-# Citibike near home — Crown Heights, Brooklyn
+# Citibike near Crown Heights, Brooklyn
 
 A single live webpage showing Citibike availability for every station within a
-**7-minute walk** of a home location in Crown Heights, Brooklyn — plus the **average
+**7-minute walk** of an origin point in Crown Heights, Brooklyn — plus the **average
 availability at 9 AM** over a date range you choose.
 
 **Live demo:** https://zackbitly.github.io/citibike-saint-marks/

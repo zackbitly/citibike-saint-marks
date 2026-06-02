@@ -1,6 +1,6 @@
 """
-Compute the set of Citibike stations within a 7-minute WALK of a home
-location in Crown Heights, Brooklyn, and bake them into data/stations.json.
+Compute the set of Citibike stations within a 7-minute WALK of an origin
+point in Crown Heights, Brooklyn, and bake them into data/stations.json.
 
 Walking time is real pedestrian routing from the keyless Valhalla
 instance (valhalla1.openstreetmap.de), not a straight-line estimate.
@@ -9,7 +9,7 @@ the website never calls Valhalla at runtime.
 
 Privacy note: the committed origin (and the displayed map pin) is rounded to
 ~100 m. The committed station list and walk times were generated from the
-precise home address, which is intentionally not stored in this public repo.
+precise origin address, which is intentionally not stored in this public repo.
 Set ORIGIN_LAT/ORIGIN_LON to the exact coordinates locally to reproduce.
 
 Usage:  python3 build/build_stations.py
@@ -21,7 +21,7 @@ import os
 import subprocess
 import urllib.request
 
-# Home location, rounded to ~100 m for privacy (see module docstring).
+# Origin point, rounded to ~100 m for privacy (see module docstring).
 ORIGIN_LAT = 40.675
 ORIGIN_LON = -73.952
 
