@@ -89,13 +89,57 @@
         <tbody id="avg-tbody"></tbody>
       </table>
     </section>
+
+    <section id="trips">
+      <div class="section-head">
+        <h2>Trips per day by station</h2>
+      </div>
+      <p class="sub">
+        Departures (trips starting) and arrivals (trips ending) per station, from Citibike&rsquo;s
+        official <a href="https://s3.amazonaws.com/tripdata/">monthly trip-history data</a>.
+        Real published trips &mdash; no estimating. This data is released monthly and lags the
+        current date by a few weeks (it is not live).
+      </p>
+
+      <div class="range-controls">
+        <label>From <input type="date" id="trips-from" /></label>
+        <label>To <input type="date" id="trips-to" /></label>
+        <button id="trips-apply" type="button">Apply</button>
+        <span id="trips-summary" class="range-summary"></span>
+      </div>
+
+      <table id="trips-table">
+        <thead>
+          <tr>
+            <th class="station">Station</th>
+            <th class="num">Departures / day</th>
+            <th class="num">Arrivals / day</th>
+            <th class="num">Net / day</th>
+            <th class="num">Total departures</th>
+            <th class="num">Total arrivals</th>
+          </tr>
+        </thead>
+        <tbody id="trips-tbody"></tbody>
+        <tfoot>
+          <tr id="trips-totals">
+            <th class="station">All stations</th>
+            <td class="num" data-k="outpd">&ndash;</td>
+            <td class="num" data-k="inpd">&ndash;</td>
+            <td class="num" data-k="netpd">&ndash;</td>
+            <td class="num" data-k="outtot">&ndash;</td>
+            <td class="num" data-k="intot">&ndash;</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
   </main>
 
   <footer>
     <p>
-      Source: <a href="https://gbfs.citibikenyc.com/gbfs/gbfs.json">Citibike GBFS</a>.
+      Sources: live availability from <a href="https://gbfs.citibikenyc.com/gbfs/gbfs.json">Citibike GBFS</a>;
+      trips from <a href="https://s3.amazonaws.com/tripdata/">Citibike System Data</a>.
       Walking radius computed once with Valhalla pedestrian routing.
-      Built fresh &middot; data accumulates from 2026-06-02.
+      9&nbsp;AM snapshots accumulate from 2026-06-02.
     </p>
   </footer>
 

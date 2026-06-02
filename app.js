@@ -224,14 +224,96 @@ function renderAverages() {
   }
 }
 
+// ---------- trips per day ----------
+
+let TRIPS = [];   // [{date, station, out, in}]
+
+async function loadTrips() {
+  try {
+    const res = await fetch("data/trips_daily.json", { cache: "no-store" });
+    const data = res.ok ? await res.json() : { daily: [] };
+    TRIPS = data.daily || [];
+  } catch (_) {
+    TRIPS = [];
+  }
+  const dates = TRIPS.map((t) => t.date).sort();
+  const fromEl = document.getElementById("trips-from");
+  const toEl = document.getElementById("trips-to");
+  if (dates.length) {
+    fromEl.value = dates[0];
+    toEl.value = dates[dates.length - 1];
+  }
+  renderTrips();
+}
+
+function renderTrips() {
+  const from = document.getElementById("trips-from").value;
+  const to = document.getElementById("trips-to").value;
+  const tbody = document.getElementById("trips-tbody");
+  const summary = document.getElementById("trips-summary");
+  tbody.innerHTML = "";
+
+  const inRange = TRIPS.filter((t) => (!from || t.date >= from) && (!to || t.date <= to));
+  // Same day-count denominator for every station: distinct dates present in range.
+  const days = new Set(inRange.map((t) => t.date)).size;
+
+  summary.textContent = TRIPS.length === 0
+    ? "Trip data not available yet."
+    : `${days} day(s) of trip data in range ${from} → ${to}.`;
+
+  const totals = { out: 0, in: 0 };
+  const byStation = new Map(STATIONS.map((s) => [s.name, { out: 0, in: 0 }]));
+  for (const t of inRange) {
+    const agg = byStation.get(t.station);
+    if (!agg) continue;
+    agg.out += t.out;
+    agg.in += t.in;
+  }
+
+  for (const st of STATIONS) {
+    const a = byStation.get(st.name) || { out: 0, in: 0 };
+    totals.out += a.out;
+    totals.in += a.in;
+    const outpd = days ? (a.out / days) : 0;
+    const inpd = days ? (a.in / days) : 0;
+    const net = inpd - outpd;
+    const netStr = (net >= 0 ? "+" : "−") + Math.abs(net).toFixed(1);
+    const tr = document.createElement("tr");
+    if (days === 0) {
+      tr.innerHTML = `<td class="station">${st.name}</td><td class="num muted-cell" colspan="5">no data in range</td>`;
+    } else {
+      tr.innerHTML =
+        `<td class="station">${st.name}</td>` +
+        `<td class="num">${outpd.toFixed(1)}</td>` +
+        `<td class="num">${inpd.toFixed(1)}</td>` +
+        `<td class="num">${netStr}</td>` +
+        `<td class="num">${a.out.toLocaleString()}</td>` +
+        `<td class="num">${a.in.toLocaleString()}</td>`;
+    }
+    tbody.appendChild(tr);
+  }
+
+  const foot = document.getElementById("trips-totals");
+  const tOutPd = days ? totals.out / days : 0;
+  const tInPd = days ? totals.in / days : 0;
+  const tNet = tInPd - tOutPd;
+  foot.querySelector('[data-k="outpd"]').textContent = days ? tOutPd.toFixed(1) : "–";
+  foot.querySelector('[data-k="inpd"]').textContent = days ? tInPd.toFixed(1) : "–";
+  foot.querySelector('[data-k="netpd"]').textContent = days ? (tNet >= 0 ? "+" : "−") + Math.abs(tNet).toFixed(1) : "–";
+  foot.querySelector('[data-k="outtot"]').textContent = totals.out.toLocaleString();
+  foot.querySelector('[data-k="intot"]').textContent = totals.in.toLocaleString();
+}
+
 // ---------- boot ----------
 
 (async function main() {
   await loadStations();
   await loadLive();
   await loadSnapshots();
+  await loadTrips();
 
   document.getElementById("refresh-btn").addEventListener("click", loadLive);
   document.getElementById("apply-range").addEventListener("click", renderAverages);
+  document.getElementById("trips-apply").addEventListener("click", renderTrips);
   setInterval(loadLive, REFRESH_MS);
 })();

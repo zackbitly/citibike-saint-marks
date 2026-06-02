@@ -1,0 +1,52 @@
+name: Refresh monthly trip data
+
+# Citibike publishes each month's trip-history file a few days into the
+# following month (e.g. April data was released May 4). We run on the 6th of
+# each month, pull the previous calendar month, and merge it into
+# data/trips_daily.json. Manual runs can target specific months.
+on:
+  schedule:
+    - cron: "0 14 6 * *"
+  workflow_dispatch:
+    inputs:
+      months:
+        description: "Space-separated YYYYMM months to (re)build, e.g. '202604 202603'. Blank = previous month."
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-trips
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build trip aggregates
+        run: |
+          if [ -n "${{ github.event.inputs.months }}" ]; then
+            python build/build_trips.py ${{ github.event.inputs.months }}
+          else
+            python build/build_trips.py --latest
+          fi
+
+      - name: Commit updated trip data if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- data/trips_daily.json; then
+            git add data/trips_daily.json
+            git commit -m "Refresh trip data $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "No trip-data changes to commit."
+          fi
