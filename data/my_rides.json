@@ -1,0 +1,1886 @@
+{
+  "source": "Personal Citibike/Lyft ride-history export",
+  "generated_from": "my_rides_raw.csv",
+  "count": 134,
+  "unmatched_stations": [
+    "E 9 St & 5 Ave"
+  ],
+  "rides": [
+    {
+      "date": "2025-05-18",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Forsyth St & Grand St",
+        "lat": 40.71779817737835,
+        "lng": -73.99316132068634
+      },
+      "minutes": 12.0
+    },
+    {
+      "date": "2025-05-19",
+      "start": {
+        "name": "6 Ave & W 34 St",
+        "lat": 40.74964,
+        "lng": -73.98805
+      },
+      "end": {
+        "name": "W 21 St & 6 Ave",
+        "lat": 40.74173969,
+        "lng": -73.99415556
+      },
+      "minutes": 13.0
+    },
+    {
+      "date": "2025-05-20",
+      "start": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "end": {
+        "name": "Washington St & Barrow St",
+        "lat": 40.73191132323174,
+        "lng": -74.008769094944
+      },
+      "minutes": 19.0
+    },
+    {
+      "date": "2025-05-20",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 16.0
+    },
+    {
+      "date": "2025-06-02",
+      "start": {
+        "name": "W 37 St & Broadway",
+        "lat": 40.75227093837409,
+        "lng": -73.98770570755005
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 14.0
+    },
+    {
+      "date": "2025-06-03",
+      "start": {
+        "name": "W 40 St & 7 Ave",
+        "lat": 40.754818,
+        "lng": -73.988154
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 14.0
+    },
+    {
+      "date": "2025-06-04",
+      "start": {
+        "name": "Perry St & Bleecker St",
+        "lat": 40.73535398,
+        "lng": -74.00483091
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 5.0
+    },
+    {
+      "date": "2025-06-05",
+      "start": {
+        "name": "W 37 St & Broadway",
+        "lat": 40.75227093837409,
+        "lng": -73.98770570755005
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 13.0
+    },
+    {
+      "date": "2025-06-06",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-06-08",
+      "start": {
+        "name": "Turner Pl & Coney Island Ave",
+        "lat": 40.64521,
+        "lng": -73.97073
+      },
+      "end": {
+        "name": "West Drive & Prospect Park West",
+        "lat": 40.6610633719006,
+        "lng": -73.97945255041122
+      },
+      "minutes": 23.0
+    },
+    {
+      "date": "2025-06-09",
+      "start": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 11.0
+    },
+    {
+      "date": "2025-06-12",
+      "start": {
+        "name": "W 31 St & 7 Ave",
+        "lat": 40.749156,
+        "lng": -73.9916
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 12.0
+    },
+    {
+      "date": "2025-06-15",
+      "start": {
+        "name": "W 17 St & 8 Ave",
+        "lat": 40.74177603,
+        "lng": -74.00149746
+      },
+      "end": {
+        "name": "King St & Varick St",
+        "lat": 40.72789701409023,
+        "lng": -74.00536268949507
+      },
+      "minutes": 10.0
+    },
+    {
+      "date": "2025-06-16",
+      "start": {
+        "name": "E 7 St & Ave B",
+        "lat": 40.7251285241158,
+        "lng": -73.98131668567657
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 16.0
+    },
+    {
+      "date": "2025-06-16",
+      "start": {
+        "name": "Lafayette St & E 8 St",
+        "lat": 40.73020660529954,
+        "lng": -73.99102628231049
+      },
+      "end": {
+        "name": "E 7 St & Ave A",
+        "lat": 40.72621788,
+        "lng": -73.98379855
+      },
+      "minutes": 6.0
+    },
+    {
+      "date": "2025-06-20",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-06-21",
+      "start": {
+        "name": "University Pl & E 14 St",
+        "lat": 40.734814,
+        "lng": -73.992085
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 7.0
+    },
+    {
+      "date": "2025-06-21",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "4 Ave & E 12 St",
+        "lat": 40.732647,
+        "lng": -73.99011
+      },
+      "minutes": 10.0
+    },
+    {
+      "date": "2025-06-22",
+      "start": {
+        "name": "University Pl & E 14 St",
+        "lat": 40.734814,
+        "lng": -73.992085
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 8.0
+    },
+    {
+      "date": "2025-06-22",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "4 Ave & E 12 St",
+        "lat": 40.732647,
+        "lng": -73.99011
+      },
+      "minutes": 9.0
+    },
+    {
+      "date": "2025-06-24",
+      "start": {
+        "name": "Clifton Pl & Bedford Ave",
+        "lat": 40.688655,
+        "lng": -73.955156
+      },
+      "end": {
+        "name": "Waverly Ave & Lafayette Ave",
+        "lat": 40.688231,
+        "lng": -73.966804
+      },
+      "minutes": 15.0
+    },
+    {
+      "date": "2025-06-24",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "4 Ave & E 12 St",
+        "lat": 40.732647,
+        "lng": -73.99011
+      },
+      "minutes": 10.0
+    },
+    {
+      "date": "2025-06-25",
+      "start": {
+        "name": "Broadway & W 37 St",
+        "lat": 40.75172632,
+        "lng": -73.98753523
+      },
+      "end": {
+        "name": "7 Ave S & Bleecker St",
+        "lat": 40.73213896287381,
+        "lng": -74.00363802909851
+      },
+      "minutes": 12.0
+    },
+    {
+      "date": "2025-06-27",
+      "start": {
+        "name": "Perry St & Bleecker St",
+        "lat": 40.73535398,
+        "lng": -74.00483091
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-06-29",
+      "start": {
+        "name": "S 4 St & Wythe Ave",
+        "lat": 40.71285887,
+        "lng": -73.96590294
+      },
+      "end": {
+        "name": "7 Ave S & Bleecker St",
+        "lat": 40.73213896287381,
+        "lng": -74.00363802909851
+      },
+      "minutes": 23.0
+    },
+    {
+      "date": "2025-06-30",
+      "start": {
+        "name": "10 Ave & W 14 St",
+        "lat": 40.741981599940225,
+        "lng": -74.00831580162048
+      },
+      "end": {
+        "name": "W 17 St & 7 Ave",
+        "lat": 40.740564236339516,
+        "lng": -73.99852573871613
+      },
+      "minutes": 5.0
+    },
+    {
+      "date": "2025-06-30",
+      "start": {
+        "name": "Perry St & Bleecker St",
+        "lat": 40.73535398,
+        "lng": -74.00483091
+      },
+      "end": {
+        "name": "Washington St & Gansevoort St",
+        "lat": 40.739323,
+        "lng": -74.008119
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-07-01",
+      "start": {
+        "name": "W 24 St & 7 Ave",
+        "lat": 40.74487634,
+        "lng": -73.99529885
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 8.0
+    },
+    {
+      "date": "2025-07-07",
+      "start": {
+        "name": "W 37 St & Broadway",
+        "lat": 40.75227093837409,
+        "lng": -73.98770570755005
+      },
+      "end": {
+        "name": "W 15 St & 7 Ave",
+        "lat": 40.73935542,
+        "lng": -73.99931783
+      },
+      "minutes": 12.0
+    },
+    {
+      "date": "2025-07-09",
+      "start": {
+        "name": "Mercer St & Bleecker St",
+        "lat": 40.72706363348306,
+        "lng": -73.99662137031554
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 7.0
+    },
+    {
+      "date": "2025-07-12",
+      "start": {
+        "name": "W 21 St & 6 Ave",
+        "lat": 40.74173969,
+        "lng": -73.99415556
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 7.0
+    },
+    {
+      "date": "2025-07-12",
+      "start": {
+        "name": "Wyckoff Ave & Cooper Ave",
+        "lat": 40.69338,
+        "lng": -73.90061
+      },
+      "end": {
+        "name": "Irving Ave & Palmetto St",
+        "lat": 40.698,
+        "lng": -73.9127
+      },
+      "minutes": 8.0
+    },
+    {
+      "date": "2025-07-12",
+      "start": {
+        "name": "Central Ave & Decatur St",
+        "lat": 40.6882,
+        "lng": -73.90798
+      },
+      "end": {
+        "name": "Norman St & Wyckoff Ave",
+        "lat": 40.69517,
+        "lng": -73.90311
+      },
+      "minutes": 5.0
+    },
+    {
+      "date": "2025-07-12",
+      "start": {
+        "name": "Central Ave & Decatur St",
+        "lat": 40.6882,
+        "lng": -73.90798
+      },
+      "end": {
+        "name": "Central Ave & Decatur St",
+        "lat": 40.6882,
+        "lng": -73.90798
+      },
+      "minutes": 1.0
+    },
+    {
+      "date": "2025-07-13",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Greenwich Ave & 8 Ave",
+        "lat": 40.7390169121,
+        "lng": -74.0026376103
+      },
+      "minutes": 3.0
+    },
+    {
+      "date": "2025-07-17",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-07-18",
+      "start": {
+        "name": "Prospect Park SW & 10 Ave",
+        "lat": 40.659945,
+        "lng": -73.977504
+      },
+      "end": {
+        "name": "Caton Ave & E 7 St",
+        "lat": 40.647718,
+        "lng": -73.973663
+      },
+      "minutes": 7.0
+    },
+    {
+      "date": "2025-07-19",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Lafayette St & Jersey St",
+        "lat": 40.72456089,
+        "lng": -73.99565293
+      },
+      "minutes": 8.0
+    },
+    {
+      "date": "2025-07-27",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "8 Ave & W 24 St",
+        "lat": 40.74591072834279,
+        "lng": -73.99807110428809
+      },
+      "minutes": 8.0
+    },
+    {
+      "date": "2025-07-27",
+      "start": {
+        "name": "E 10 St & 5 Ave",
+        "lat": 40.73331967,
+        "lng": -73.99510132
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-07-29",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-08-01",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-08-02",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Greenwich Ave & 8 Ave",
+        "lat": 40.7390169121,
+        "lng": -74.0026376103
+      },
+      "minutes": 3.0
+    },
+    {
+      "date": "2025-08-03",
+      "start": {
+        "name": "W 15 St & 7 Ave",
+        "lat": 40.73935542,
+        "lng": -73.99931783
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-08-04",
+      "start": {
+        "name": "W 37 St & Broadway",
+        "lat": 40.75227093837409,
+        "lng": -73.98770570755005
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 13.0
+    },
+    {
+      "date": "2025-08-05",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-08-05",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 1.0
+    },
+    {
+      "date": "2025-08-06",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-08-12",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-08-14",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-08-18",
+      "start": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 12.0
+    },
+    {
+      "date": "2025-08-18",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 16.0
+    },
+    {
+      "date": "2025-08-19",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-08-19",
+      "start": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "end": {
+        "name": "1 Ave & E 38 St",
+        "lat": 40.746202,
+        "lng": -73.971822
+      },
+      "minutes": 11.0
+    },
+    {
+      "date": "2025-08-20",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 14.0
+    },
+    {
+      "date": "2025-08-21",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-08-26",
+      "start": {
+        "name": "W 37 St & Broadway",
+        "lat": 40.75227093837409,
+        "lng": -73.98770570755005
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 15.0
+    },
+    {
+      "date": "2025-08-26",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 14.0
+    },
+    {
+      "date": "2025-08-26",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 1.0
+    },
+    {
+      "date": "2025-08-27",
+      "start": {
+        "name": "W 31 St & 7 Ave",
+        "lat": 40.749156,
+        "lng": -73.9916
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 10.0
+    },
+    {
+      "date": "2025-08-27",
+      "start": {
+        "name": "W 37 St & Broadway",
+        "lat": 40.75227093837409,
+        "lng": -73.98770570755005
+      },
+      "end": {
+        "name": "W 31 St & 7 Ave",
+        "lat": 40.749156,
+        "lng": -73.9916
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-08-27",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 14.0
+    },
+    {
+      "date": "2025-08-29",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "W 15 St & 6 Ave",
+        "lat": 40.738046142482766,
+        "lng": -73.99642959237099
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-08-30",
+      "start": {
+        "name": "111 St & Roosevelt Ave",
+        "lat": 40.75147,
+        "lng": -73.8557
+      },
+      "end": {
+        "name": "Van Cleef St & 108 St",
+        "lat": 40.74096,
+        "lng": -73.85357
+      },
+      "minutes": 7.0
+    },
+    {
+      "date": "2025-08-31",
+      "start": {
+        "name": "Coffey St & Conover St",
+        "lat": 40.677236,
+        "lng": -74.015665
+      },
+      "end": {
+        "name": "Carroll St & Smith St",
+        "lat": 40.680611,
+        "lng": -73.99475825
+      },
+      "minutes": 11.0
+    },
+    {
+      "date": "2025-08-31",
+      "start": {
+        "name": "Smith St & 9 St",
+        "lat": 40.6746957,
+        "lng": -73.99785768
+      },
+      "end": {
+        "name": "Van Brunt St & Wolcott St",
+        "lat": 40.6773429,
+        "lng": -74.01275056
+      },
+      "minutes": 7.0
+    },
+    {
+      "date": "2025-09-01",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "E 10 St & 5 Ave",
+        "lat": 40.73331967,
+        "lng": -73.99510132
+      },
+      "minutes": 4.0
+    },
+    {
+      "date": "2025-09-02",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 13.0
+    },
+    {
+      "date": "2025-09-03",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 14.0
+    },
+    {
+      "date": "2025-09-04",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 16.0
+    },
+    {
+      "date": "2025-09-10",
+      "start": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 14.0
+    },
+    {
+      "date": "2025-09-11",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 15.0
+    },
+    {
+      "date": "2025-09-14",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Forsyth St & Grand St",
+        "lat": 40.71779817737835,
+        "lng": -73.99316132068634
+      },
+      "minutes": 15.0
+    },
+    {
+      "date": "2025-09-15",
+      "start": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 14.0
+    },
+    {
+      "date": "2025-09-15",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 16.0
+    },
+    {
+      "date": "2025-09-18",
+      "start": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 14.0
+    },
+    {
+      "date": "2025-09-18",
+      "start": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 12.0
+    },
+    {
+      "date": "2025-09-18",
+      "start": {
+        "name": "Gansevoort St & Hudson St",
+        "lat": 40.73937600789778,
+        "lng": -74.00520807425661
+      },
+      "end": {
+        "name": "8 Ave & W 16 St",
+        "lat": 40.740983,
+        "lng": -74.001702
+      },
+      "minutes": 3.0
+    },
+    {
+      "date": "2025-09-19",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "8 Ave & W 24 St",
+        "lat": 40.74591072834279,
+        "lng": -73.99807110428809
+      },
+      "minutes": 6.0
+    },
+    {
+      "date": "2025-09-21",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Forsyth St & Grand St",
+        "lat": 40.71779817737835,
+        "lng": -73.99316132068634
+      },
+      "minutes": 18.0
+    },
+    {
+      "date": "2025-09-22",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 15.0
+    },
+    {
+      "date": "2025-09-23",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 15.0
+    },
+    {
+      "date": "2025-09-24",
+      "start": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 18.0
+    },
+    {
+      "date": "2025-09-27",
+      "start": {
+        "name": "W 15 St & 7 Ave",
+        "lat": 40.73935542,
+        "lng": -73.99931783
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 6.0
+    },
+    {
+      "date": "2025-09-28",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Allen St & Hester St",
+        "lat": 40.71606,
+        "lng": -73.99191
+      },
+      "minutes": 16.0
+    },
+    {
+      "date": "2025-09-29",
+      "start": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 15.0
+    },
+    {
+      "date": "2025-09-30",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 15.0
+    },
+    {
+      "date": "2025-10-02",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "W 13 St & 7 Ave",
+        "lat": 40.73781509,
+        "lng": -73.99994661
+      },
+      "minutes": 5.0
+    },
+    {
+      "date": "2025-10-05",
+      "start": {
+        "name": "Bedford Ave & Nassau Ave",
+        "lat": 40.72311651,
+        "lng": -73.95212324
+      },
+      "end": {
+        "name": "Forsyth St & Broome St",
+        "lat": 40.71893904,
+        "lng": -73.99266288
+      },
+      "minutes": 22.0
+    },
+    {
+      "date": "2025-10-20",
+      "start": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 14.0
+    },
+    {
+      "date": "2025-10-21",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 14.0
+    },
+    {
+      "date": "2025-10-22",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "minutes": 15.0
+    },
+    {
+      "date": "2025-10-24",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Cooper Square & Astor Pl",
+        "lat": 40.72951496224949,
+        "lng": -73.99075269699097
+      },
+      "minutes": 10.0
+    },
+    {
+      "date": "2025-10-25",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "W 15 St & 6 Ave",
+        "lat": 40.738046142482766,
+        "lng": -73.99642959237099
+      },
+      "minutes": 9.0
+    },
+    {
+      "date": "2025-10-26",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Forsyth St & Grand St",
+        "lat": 40.71779817737835,
+        "lng": -73.99316132068634
+      },
+      "minutes": 12.0
+    },
+    {
+      "date": "2025-10-27",
+      "start": {
+        "name": "E 19 St & 3 Ave",
+        "lat": 40.73624527,
+        "lng": -73.98473765
+      },
+      "end": {
+        "name": "4 Ave & E 12 St",
+        "lat": 40.732647,
+        "lng": -73.99011
+      },
+      "minutes": 6.0
+    },
+    {
+      "date": "2025-10-27",
+      "start": {
+        "name": "Broadway & W 38 St",
+        "lat": 40.7529728216068,
+        "lng": -73.98734897375107
+      },
+      "end": {
+        "name": "E 19 St & 3 Ave",
+        "lat": 40.73624527,
+        "lng": -73.98473765
+      },
+      "minutes": 11.0
+    },
+    {
+      "date": "2025-10-30",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "E 3 St & 1 Ave",
+        "lat": 40.72467721,
+        "lng": -73.98783413
+      },
+      "minutes": 11.0
+    },
+    {
+      "date": "2025-10-31",
+      "start": {
+        "name": "E 3 St & 1 Ave",
+        "lat": 40.72467721,
+        "lng": -73.98783413
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 15.0
+    },
+    {
+      "date": "2025-11-06",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "8 Ave & W 31 St",
+        "lat": 40.7505853470215,
+        "lng": -73.9946848154068
+      },
+      "minutes": 12.0
+    },
+    {
+      "date": "2025-11-07",
+      "start": {
+        "name": "W 17 St & 7 Ave",
+        "lat": 40.740564236339516,
+        "lng": -73.99852573871613
+      },
+      "end": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "minutes": 6.0
+    },
+    {
+      "date": "2025-11-07",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "W 18 St & 6 Ave",
+        "lat": 40.73971301,
+        "lng": -73.99456405
+      },
+      "minutes": 6.0
+    },
+    {
+      "date": "2025-11-14",
+      "start": {
+        "name": "W 17 St & 7 Ave",
+        "lat": 40.740564236339516,
+        "lng": -73.99852573871613
+      },
+      "end": {
+        "name": "Christopher St & Greenwich St",
+        "lat": 40.73291553,
+        "lng": -74.00711384
+      },
+      "minutes": 6.0
+    },
+    {
+      "date": "2025-11-14",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "W 20 St & 5 Ave",
+        "lat": 40.73972989238724,
+        "lng": -73.99103969335556
+      },
+      "minutes": 7.0
+    },
+    {
+      "date": "2025-12-05",
+      "start": {
+        "name": "St Marks Pl & 1 Ave",
+        "lat": 40.72779126,
+        "lng": -73.98564945
+      },
+      "end": {
+        "name": "Perry St & Bleecker St",
+        "lat": 40.73535398,
+        "lng": -74.00483091
+      },
+      "minutes": 10.0
+    },
+    {
+      "date": "2025-12-05",
+      "start": {
+        "name": "Bleecker St & Crosby St",
+        "lat": 40.72615604980408,
+        "lng": -73.99510189890862
+      },
+      "end": {
+        "name": "1 Ave & E 6 St",
+        "lat": 40.72633085971696,
+        "lng": -73.98616880178452
+      },
+      "minutes": 6.0
+    },
+    {
+      "date": "2025-12-15",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "E 19 St & 3 Ave",
+        "lat": 40.73624527,
+        "lng": -73.98473765
+      },
+      "minutes": 10.0
+    },
+    {
+      "date": "2025-12-24",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "Mott St & Prince St",
+        "lat": 40.72317958,
+        "lng": -73.99480012
+      },
+      "minutes": 7.0
+    },
+    {
+      "date": "2026-01-10",
+      "start": {
+        "name": "W 4 St & 7 Ave S",
+        "lat": 40.73401143,
+        "lng": -74.00293877
+      },
+      "end": {
+        "name": "E 19 St & 3 Ave",
+        "lat": 40.73624527,
+        "lng": -73.98473765
+      },
+      "minutes": 10.0
+    },
+    {
+      "date": "2026-03-11",
+      "start": {
+        "name": "State St & Smith St",
+        "lat": 40.68917,
+        "lng": -73.9886
+      },
+      "end": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "minutes": 18.0
+    },
+    {
+      "date": "2026-03-11",
+      "start": {
+        "name": "Prospect Pl & Nostrand Ave",
+        "lat": 40.67428,
+        "lng": -73.9503
+      },
+      "end": {
+        "name": "Atlantic Ave & Furman St",
+        "lat": 40.69165183,
+        "lng": -73.9999786
+      },
+      "minutes": 27.0
+    },
+    {
+      "date": "2026-04-01",
+      "start": {
+        "name": "Dean St & Franklin Ave",
+        "lat": 40.67759206937376,
+        "lng": -73.955637216568
+      },
+      "end": {
+        "name": "Atlantic Ave & Furman St",
+        "lat": 40.69165183,
+        "lng": -73.9999786
+      },
+      "minutes": 15.0
+    },
+    {
+      "date": "2026-04-15",
+      "start": {
+        "name": "Atlantic Ave & Furman St",
+        "lat": 40.69165183,
+        "lng": -73.9999786
+      },
+      "end": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "minutes": 18.0
+    },
+    {
+      "date": "2026-04-15",
+      "start": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "end": {
+        "name": "Atlantic Ave & Furman St",
+        "lat": 40.69165183,
+        "lng": -73.9999786
+      },
+      "minutes": 20.0
+    },
+    {
+      "date": "2026-04-16",
+      "start": {
+        "name": "Atlantic Ave & Fort Greene Pl",
+        "lat": 40.68382604,
+        "lng": -73.97632328
+      },
+      "end": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "minutes": 13.0
+    },
+    {
+      "date": "2026-04-18",
+      "start": {
+        "name": "Pacific St & Nostrand Ave",
+        "lat": 40.6776,
+        "lng": -73.94963
+      },
+      "end": {
+        "name": "N 7 St & Driggs Ave",
+        "lat": 40.716967,
+        "lng": -73.956388
+      },
+      "minutes": 27.0
+    },
+    {
+      "date": "2026-04-22",
+      "start": {
+        "name": "Atlantic Ave & Furman St",
+        "lat": 40.69165183,
+        "lng": -73.9999786
+      },
+      "end": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "minutes": 22.0
+    },
+    {
+      "date": "2026-04-24",
+      "start": {
+        "name": "Putnam Ave & Nostrand Ave",
+        "lat": 40.68402,
+        "lng": -73.94977
+      },
+      "end": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "minutes": 6.0
+    },
+    {
+      "date": "2026-04-24",
+      "start": {
+        "name": "Putnam Ave & Nostrand Ave",
+        "lat": 40.68402,
+        "lng": -73.94977
+      },
+      "end": {
+        "name": "Putnam Ave & Nostrand Ave",
+        "lat": 40.68402,
+        "lng": -73.94977
+      },
+      "minutes": 1.0
+    },
+    {
+      "date": "2026-04-24",
+      "start": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "end": {
+        "name": "Putnam Ave & Nostrand Ave",
+        "lat": 40.68402,
+        "lng": -73.94977
+      },
+      "minutes": 6.0
+    },
+    {
+      "date": "2026-04-29",
+      "start": {
+        "name": "Atlantic Ave & Furman St",
+        "lat": 40.69165183,
+        "lng": -73.9999786
+      },
+      "end": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "minutes": 20.0
+    },
+    {
+      "date": "2026-04-29",
+      "start": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "end": {
+        "name": "Atlantic Ave & Furman St",
+        "lat": 40.69165183,
+        "lng": -73.9999786
+      },
+      "minutes": 86.0
+    },
+    {
+      "date": "2026-04-29",
+      "start": {
+        "name": "W 31 St & 7 Ave",
+        "lat": 40.749156,
+        "lng": -73.9916
+      },
+      "end": {
+        "name": "University Pl & E 14 St",
+        "lat": 40.734814,
+        "lng": -73.992085
+      },
+      "minutes": 10.0
+    },
+    {
+      "date": "2026-05-01",
+      "start": {
+        "name": "Dean St & Franklin Ave",
+        "lat": 40.67759206937376,
+        "lng": -73.955637216568
+      },
+      "end": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "minutes": 3.0
+    },
+    {
+      "date": "2026-05-05",
+      "start": {
+        "name": "W 15 St & 6 Ave",
+        "lat": 40.738046142482766,
+        "lng": -73.99642959237099
+      },
+      "end": {
+        "name": "Perry St & Bleecker St",
+        "lat": 40.73535398,
+        "lng": -74.00483091
+      },
+      "minutes": 7.0
+    },
+    {
+      "date": "2026-05-05",
+      "start": {
+        "name": "W 31 St & 7 Ave",
+        "lat": 40.749156,
+        "lng": -73.9916
+      },
+      "end": {
+        "name": "W 18 St & 6 Ave",
+        "lat": 40.73971301,
+        "lng": -73.99456405
+      },
+      "minutes": 7.0
+    },
+    {
+      "date": "2026-05-06",
+      "start": {
+        "name": "Atlantic Ave & Furman St",
+        "lat": 40.69165183,
+        "lng": -73.9999786
+      },
+      "end": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "minutes": 22.0
+    },
+    {
+      "date": "2026-05-09",
+      "start": {
+        "name": "Henry St & Remsen St",
+        "lat": 40.69400964865994,
+        "lng": -73.99465128779411
+      },
+      "end": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "minutes": 15.0
+    },
+    {
+      "date": "2026-05-13",
+      "start": {
+        "name": "Atlantic Ave & Furman St",
+        "lat": 40.69165183,
+        "lng": -73.9999786
+      },
+      "end": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "minutes": 25.0
+    },
+    {
+      "date": "2026-05-13",
+      "start": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "end": {
+        "name": "Degraw St & Smith St",
+        "lat": 40.6829151,
+        "lng": -73.99318208
+      },
+      "minutes": 20.0
+    },
+    {
+      "date": "2026-05-15",
+      "start": {
+        "name": "Prospect Pl & Nostrand Ave",
+        "lat": 40.67428,
+        "lng": -73.9503
+      },
+      "end": {
+        "name": "Atlantic Ave & Fort Greene Pl",
+        "lat": 40.68382604,
+        "lng": -73.97632328
+      },
+      "minutes": 15.0
+    },
+    {
+      "date": "2026-05-16",
+      "start": {
+        "name": "W 48 St &  Rockefeller Plaza",
+        "lat": 40.75776935448309,
+        "lng": -73.97929430007935
+      },
+      "end": {
+        "name": "Broadway & W 29 St",
+        "lat": 40.7462009,
+        "lng": -73.98855723
+      },
+      "minutes": 13.0
+    },
+    {
+      "date": "2026-05-31",
+      "start": {
+        "name": "Bergen St & Vanderbilt Ave",
+        "lat": 40.6794388,
+        "lng": -73.9680438
+      },
+      "end": {
+        "name": "Forsyth St & Canal St",
+        "lat": 40.7158155,
+        "lng": -73.99422366
+      },
+      "minutes": 27.0
+    },
+    {
+      "date": "2026-05-31",
+      "start": {
+        "name": "Bedford Ave & Bergen St",
+        "lat": 40.676368,
+        "lng": -73.952918
+      },
+      "end": {
+        "name": "Bergen St & Vanderbilt Ave",
+        "lat": 40.6794388,
+        "lng": -73.9680438
+      },
+      "minutes": 6.0
+    }
+  ]
+}

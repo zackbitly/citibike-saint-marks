@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Citibike rides</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="rides.css" />
+</head>
+<body>
+  <header>
+    <h1>My Citibike rides</h1>
+    <p class="sub">
+      Every ride drawn as a straight line from start to end station &middot;
+      from my personal <a href="https://account.citibikenyc.com/">Citibike ride history</a>
+      &middot; <a href="index.html">&larr; back to live map</a>
+    </p>
+  </header>
+
+  <main>
+    <section id="rides">
+      <div class="section-head">
+        <h2>Rides map</h2>
+        <div class="range-controls">
+          <label>Year <select id="year-select"></select></label>
+          <span id="rides-summary" class="range-summary"></span>
+        </div>
+      </div>
+
+      <div class="stats" id="stats"></div>
+
+      <div id="map"></div>
+      <div class="legend">
+        <span><i class="swatch"></i> a ride (darker = ridden more often)</span>
+        <span><i class="dot station"></i> a station you used (size = visits)</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Source: my personal Citibike/Lyft ride-history export. Citibike exports list
+      start/end stations and times only &mdash; there is no GPS track, so each ride is a
+      straight line between its two stations (distances shown are straight-line, not the
+      route actually pedalled). Station coordinates resolved from the
+      <a href="https://gbfs.citibikenyc.com/gbfs/gbfs.json">Citibike GBFS</a> feed.
+    </p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="rides.js"></script>
+</body>
+</html>
