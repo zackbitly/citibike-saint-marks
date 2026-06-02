@@ -158,6 +158,38 @@ button:hover { filter: brightness(1.06); }
 .routes-table th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .routes-table tbody tr:last-child td { border-bottom: none; }
 
+/* When-I-ride bar charts */
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 14px;
+}
+.chart h3 { margin: 0 0 12px; font-size: 0.95rem; }
+.bars { display: flex; align-items: flex-end; gap: 3px; }
+.bar { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; min-width: 0; }
+.bar-track { width: 100%; height: 120px; display: flex; align-items: flex-end; }
+.bar-fill {
+  width: 72%;
+  margin: 0 auto;
+  background: var(--ride);
+  border-radius: 3px 3px 0 0;
+  opacity: 0.85;
+}
+.bar:hover .bar-fill { opacity: 1; }
+.bar-label {
+  margin-top: 6px;
+  font-size: 0.7rem;
+  color: var(--muted);
+  white-space: nowrap;
+  height: 1em;
+}
+.chart-empty { color: var(--muted); font-size: 0.85rem; margin: 0; }
+
+@media (max-width: 560px) {
+  .charts { grid-template-columns: 1fr; }
+}
+
 .range-controls label { font-size: 0.88rem; color: var(--muted); }
 .range-controls select { font: inherit; padding: 5px 7px; border: 1px solid var(--line); border-radius: 7px; background: #fff; }
 .range-summary { font-size: 0.85rem; color: var(--muted); }
