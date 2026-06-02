@@ -1,3 +1,7 @@
 .DS_Store
 __pycache__/
 *.pyc
+
+# Personal ride-history export (build input for data/my_rides.json).
+# Keep local — it carries ride times + prices the public site doesn't need.
+build/my_rides_raw.csv
