@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Citibike near home — Crown Heights, Brooklyn</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Citibike near home — Crown Heights, Brooklyn</h1>
+    <p class="sub">Stations within a <strong>7-minute walk</strong> &middot; live data from Citibike GBFS</p>
+  </header>
+
+  <main>
+    <section id="live">
+      <div class="section-head">
+        <h2>Live availability</h2>
+        <div class="live-meta">
+          <span id="live-status">Loading&hellip;</span>
+          <button id="refresh-btn" type="button">Refresh</button>
+        </div>
+      </div>
+
+      <table id="live-table">
+        <thead>
+          <tr>
+            <th class="station">Station</th>
+            <th class="num">Walk</th>
+            <th class="num">Classic</th>
+            <th class="num">E-bikes</th>
+            <th class="num">Total bikes</th>
+            <th class="num">Docks</th>
+          </tr>
+        </thead>
+        <tbody id="live-tbody"></tbody>
+        <tfoot>
+          <tr id="live-totals">
+            <th class="station">Total (8 stations)</th>
+            <td class="num">&ndash;</td>
+            <td class="num" data-k="classic">&ndash;</td>
+            <td class="num" data-k="ebikes">&ndash;</td>
+            <td class="num" data-k="total">&ndash;</td>
+            <td class="num" data-k="docks">&ndash;</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <div id="map"></div>
+      <div class="legend">
+        <span><i class="dot good"></i> 6+ bikes</span>
+        <span><i class="dot ok"></i> 3&ndash;5</span>
+        <span><i class="dot low"></i> 1&ndash;2</span>
+        <span><i class="dot empty"></i> 0</span>
+        <span><i class="bolt">&#9889;</i> e-bikes available</span>
+        <span><i class="dot origin"></i> home (approx.)</span>
+      </div>
+    </section>
+
+    <section id="averages">
+      <div class="section-head">
+        <h2>Average availability at 9&nbsp;AM</h2>
+      </div>
+      <p class="sub">
+        Averaged from real 9&nbsp;AM (America/New_York) snapshots saved daily. No estimates &mdash;
+        stations with no snapshot in the window show &ldquo;no data.&rdquo;
+      </p>
+
+      <div class="range-controls">
+        <label>From <input type="date" id="from-date" /></label>
+        <label>To <input type="date" id="to-date" /></label>
+        <button id="apply-range" type="button">Apply</button>
+        <span id="range-summary" class="range-summary"></span>
+      </div>
+
+      <table id="avg-table">
+        <thead>
+          <tr>
+            <th class="station">Station</th>
+            <th class="num">Avg classic</th>
+            <th class="num">Avg e-bikes</th>
+            <th class="num">Avg total</th>
+            <th class="num">Avg docks</th>
+            <th class="num">Days (n)</th>
+          </tr>
+        </thead>
+        <tbody id="avg-tbody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Source: <a href="https://gbfs.citibikenyc.com/gbfs/gbfs.json">Citibike GBFS</a>.
+      Walking radius computed once with Valhalla pedestrian routing.
+      Built fresh &middot; data accumulates from 2026-06-02.
+    </p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>

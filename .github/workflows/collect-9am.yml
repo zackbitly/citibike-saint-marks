@@ -1,0 +1,54 @@
+name: Collect 9 AM snapshot
+
+# Records one Citibike snapshot at 9 AM America/New_York for the in-radius
+# stations. GitHub cron is UTC and does not observe DST, so we fire at both
+# 12:55 UTC (covers 9 AM EDT / summer) and 13:55 UTC (covers 9 AM EST / winter).
+# The script only writes when the local NY hour is 9, so exactly one run/day
+# appends a snapshot.
+on:
+  schedule:
+    - cron: "55 12 * * *"
+    - cron: "55 13 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Force a write even if NY time is not 9 AM (for testing)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-9am
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Collect snapshot
+        run: |
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            python collector/collect_9am.py --force
+          else
+            python collector/collect_9am.py
+          fi
+
+      - name: Commit snapshot if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- data/snapshots_9am.jsonl; then
+            git add data/snapshots_9am.jsonl
+            git commit -m "Add 9 AM snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          else
+            echo "No new snapshot to commit (outside 9 AM window or no change)."
+          fi

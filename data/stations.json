@@ -1,0 +1,92 @@
+{
+  "origin": {
+    "label": "Crown Heights, Brooklyn (approx.)",
+    "lat": 40.675,
+    "lng": -73.952
+  },
+  "walk_limit_minutes": 7,
+  "routing": "valhalla pedestrian (valhalla1.openstreetmap.de)",
+  "generated_note": "Walking times are real pedestrian routes computed once at build time.",
+  "stations": [
+    {
+      "station_id": "a2f71eea-05a2-4fe7-99ab-f74535c880ae",
+      "name": "Bedford Ave & Bergen St",
+      "lat": 40.676368,
+      "lng": -73.952918,
+      "capacity": 24,
+      "walk_seconds": 149,
+      "walk_min": 2.5,
+      "walk_meters": 204
+    },
+    {
+      "station_id": "475c44e1-31e3-4c60-b071-af2ca3f7618c",
+      "name": "Prospect Pl & Nostrand Ave",
+      "lat": 40.67428,
+      "lng": -73.9503,
+      "capacity": 22,
+      "walk_seconds": 184,
+      "walk_min": 3.1,
+      "walk_meters": 262
+    },
+    {
+      "station_id": "66f68197-4897-4576-896a-48e0312104c5",
+      "name": "Franklin Ave & St Marks Ave",
+      "lat": 40.6758324,
+      "lng": -73.9561677,
+      "capacity": 29,
+      "walk_seconds": 273,
+      "walk_min": 4.5,
+      "walk_meters": 372
+    },
+    {
+      "station_id": "78b4aa30-e4e9-4447-9419-c89f8527892e",
+      "name": "New York Ave & St Marks Ave",
+      "lat": 40.67514,
+      "lng": -73.94716,
+      "capacity": 23,
+      "walk_seconds": 294,
+      "walk_min": 4.9,
+      "walk_meters": 422
+    },
+    {
+      "station_id": "c702c094-b08f-449d-a41d-b3724f147491",
+      "name": "Pacific St & Nostrand Ave",
+      "lat": 40.6776,
+      "lng": -73.94963,
+      "capacity": 22,
+      "walk_seconds": 304,
+      "walk_min": 5.1,
+      "walk_meters": 447
+    },
+    {
+      "station_id": "dd351a72-4241-4275-843d-0fffa8a1f414",
+      "name": "Sterling Pl & Bedford Ave",
+      "lat": 40.672695,
+      "lng": -73.954131,
+      "capacity": 25,
+      "walk_seconds": 327,
+      "walk_min": 5.5,
+      "walk_meters": 424
+    },
+    {
+      "station_id": "26176e86-8362-4c91-a693-6aa3f9ce0b73",
+      "name": "Dean St & Franklin Ave",
+      "lat": 40.67759206937376,
+      "lng": -73.955637216568,
+      "capacity": 21,
+      "walk_seconds": 374,
+      "walk_min": 6.2,
+      "walk_meters": 526
+    },
+    {
+      "station_id": "2208187041057701258",
+      "name": "Park Pl & Franklin Ave",
+      "lat": 40.67418106036449,
+      "lng": -73.95655458212127,
+      "capacity": 20,
+      "walk_seconds": 402,
+      "walk_min": 6.7,
+      "walk_meters": 538
+    }
+  ]
+}
