@@ -29,6 +29,7 @@ import os
 import sys
 import urllib.request
 from collections import Counter
+from datetime import datetime
 
 HERE = os.path.dirname(__file__)
 DEFAULT_OUT = os.path.join(HERE, "..", "data", "my_rides.json")
@@ -66,6 +67,39 @@ def to_float(v):
         return float(v)
     except (TypeError, ValueError):
         return None
+
+
+# Common start-time shapes across Lyft/Citibike exports. Tried in order after
+# datetime.fromisoformat. (Python may be 3.9 here, so don't rely on 3.11 ISO
+# parsing — explicit strptime formats keep it portable.)
+DT_FORMATS = (
+    "%Y-%m-%d %H:%M:%S", "%Y-%m-%d %H:%M",
+    "%Y-%m-%dT%H:%M:%S", "%Y-%m-%dT%H:%M",
+    "%m/%d/%Y %H:%M:%S", "%m/%d/%Y %H:%M",
+    "%Y-%m-%d", "%m/%d/%Y",
+)
+
+
+def parse_started(raw):
+    """Parse an export's start-time cell into a datetime, or None.
+
+    Times are interpreted as-is (assumed already local) — no timezone
+    conversion. build/my_rides_raw.csv is written in America/New_York, so the
+    weekday/hour derived from this are correct for NYC.
+    """
+    s = (raw or "").strip()
+    if not s:
+        return None
+    try:
+        return datetime.fromisoformat(s)
+    except ValueError:
+        pass
+    for fmt in DT_FORMATS:
+        try:
+            return datetime.strptime(s, fmt)
+        except ValueError:
+            continue
+    return None
 
 
 def main():
@@ -132,16 +166,29 @@ def main():
         ept = locate(ename, c_elat, c_elng, row) if ename else spt
         if ept is None:
             continue
-        date = (row.get(c_stime) or "")[:10]  # "YYYY-MM-DD..." or "MM/DD/YYYY"
-        if "/" in date:  # normalize US-style MM/DD/YYYY
-            try:
-                m, d, y = date.split("/")
-                date = f"{y}-{int(m):02d}-{int(d):02d}"
-            except ValueError:
-                pass
+        raw_time = (row.get(c_stime) or "").strip()
+        dt = parse_started(raw_time)
+        # A ":" in the source means a real time was present (not a bare date).
+        has_time = dt is not None and ":" in raw_time
+        if dt is not None:
+            date = dt.strftime("%Y-%m-%d")
+        else:
+            date = raw_time[:10]  # "YYYY-MM-DD..." or "MM/DD/YYYY"
+            if "/" in date:  # normalize US-style MM/DD/YYYY
+                try:
+                    m, d, y = date.split("/")
+                    date = f"{y}-{int(m):02d}-{int(d):02d}"
+                except ValueError:
+                    pass
+        started = dt.strftime("%Y-%m-%d %H:%M:%S") if has_time else None
+        hour = dt.hour if has_time else None
+        dow = dt.weekday() if has_time else None  # 0=Mon .. 6=Sun
         minutes = to_float(row.get(c_dur)) if c_dur else None
         rides.append({
             "date": date,
+            "started": started,
+            "hour": hour,
+            "dow": dow,
             "start": {"name": sname or "(unknown)", "lat": spt[0], "lng": spt[1]},
             "end": {"name": ename or sname or "(unknown)", "lat": ept[0], "lng": ept[1]},
             "minutes": round(minutes, 1) if minutes is not None else None,
