@@ -128,13 +128,26 @@ button:hover { filter: brightness(1.06); }
   margin-right: 3px;
 }
 .dot.station { background: var(--ride); border: 2px solid #fff; box-shadow: 0 0 0 1px var(--ride); }
+.dot.origin { background: var(--origin); border: 2px solid #fff; box-shadow: 0 0 0 1px var(--origin); }
 
-/* Station dots on the map (divIcon) */
+/* Station dots on the map (divIcon). Fill color is set inline per station. */
 .cb-station {
   border-radius: 50%;
   background: var(--ride);
   border: 2px solid #fff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+
+/* Directional arrowhead on each ride arc (divIcon). A CSS triangle pointing
+   right (east); rotated inline to the arc's tangent so it aims at the
+   destination. Constant pixel size across zoom. */
+.cb-arrow {
+  width: 0; height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 7px solid var(--ride);
+  transform-origin: 50% 50%;
+  filter: drop-shadow(0 0 1px rgba(255,255,255,0.7));
 }
 
 .range-controls {
