@@ -24,6 +24,22 @@
         <h2>Rides map</h2>
         <div class="range-controls">
           <label>Year <select id="year-select"></select></label>
+          <label>Time
+            <select id="time-select">
+              <option value="all">All day</option>
+              <option value="morning">Morning · 5a–11a</option>
+              <option value="midday">Midday · 11a–4p</option>
+              <option value="evening">Evening · 4p–9p</option>
+              <option value="night">Night · 9p–5a</option>
+            </select>
+          </label>
+          <label>Days
+            <select id="day-select">
+              <option value="all">All days</option>
+              <option value="weekday">Weekdays</option>
+              <option value="weekend">Weekends</option>
+            </select>
+          </label>
           <span id="rides-summary" class="range-summary"></span>
         </div>
       </div>
