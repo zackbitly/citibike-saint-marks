@@ -107,9 +107,9 @@ function render() {
   renderSummary({ yearSel, timeSel, daySel }, inRange);
   renderStats(inRange);
   renderTopRoutes(inRange);
+  renderMonthChart(inRange);
   renderHourChart(inRange);
   renderDowChart(inRange);
-  renderMonthChart(inRange);
   renderHeatmap(inRange);
   renderMap(inRange);
 }
