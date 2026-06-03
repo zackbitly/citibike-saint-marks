@@ -139,14 +139,16 @@ button:hover { filter: brightness(1.06); }
 }
 
 /* Directional arrowhead on each ride arc (divIcon). A CSS triangle pointing
-   right (east); rotated inline to the arc's tangent so it aims at the
-   destination. Constant pixel size across zoom. */
+   right (east); centered on the icon anchor, then rotated inline (with a
+   translate(-50%,-50%) prefix) to the arc's tangent so its tip sits on the
+   curve and aims at the destination. Constant pixel size across zoom. */
 .cb-arrow {
+  position: absolute;
+  top: 50%; left: 50%;
   width: 0; height: 0;
   border-top: 4px solid transparent;
   border-bottom: 4px solid transparent;
   border-left: 7px solid var(--ride);
-  transform-origin: 50% 50%;
   filter: drop-shadow(0 0 1px rgba(255,255,255,0.7));
 }
 
