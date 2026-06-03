@@ -12,7 +12,7 @@
   <header>
     <h1>My Citibike rides</h1>
     <p class="sub">
-      Every ride drawn as a straight line from start to end station &middot;
+      Every ride drawn as a curved arrow from start to end station &middot;
       from my personal <a href="https://account.citibikenyc.com/">Citibike ride history</a>
       &middot; <a href="index.html">&larr; back to live map</a>
     </p>
@@ -48,8 +48,9 @@
 
       <div id="map"></div>
       <div class="legend">
-        <span><i class="swatch"></i> a ride (darker = ridden more often)</span>
-        <span><i class="dot station"></i> a station you used (size = visits)</span>
+        <span><i class="swatch"></i> a ride (darker = ridden more often; arrow &amp; curve point to where it ended)</span>
+        <span><i class="dot origin"></i> mostly a start</span>
+        <span><i class="dot station"></i> mostly an end <span style="opacity:.7">(dot size = visits)</span></span>
       </div>
 
       <div class="routes" id="top-routes"></div>
@@ -86,9 +87,10 @@
   <footer>
     <p>
       Source: my personal Citibike/Lyft ride-history export. Citibike exports list
-      start/end stations and times only &mdash; there is no GPS track, so each ride is a
-      straight line between its two stations (distances shown are straight-line, not the
-      route actually pedalled). Station coordinates resolved from the
+      start/end stations and times only &mdash; there is no GPS track, so each ride is drawn
+      as a simple arc between its two stations, curving to the right of travel with an arrow
+      toward the destination (distances shown are straight-line, not the route actually
+      pedalled). Station coordinates resolved from the
       <a href="https://gbfs.citibikenyc.com/gbfs/gbfs.json">Citibike GBFS</a> feed.
     </p>
   </footer>

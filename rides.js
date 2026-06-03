@@ -55,6 +55,45 @@ function haversineKm(a, b) {
   return 2 * R * Math.asin(Math.sqrt(h));
 }
 
+// Sampled quadratic-bezier arc from a=[lat,lng] to b=[lat,lng] for an OD flow
+// map. The control point is offset to the RIGHT of travel by `curvature` of the
+// segment length, so A->B and B->A bow to opposite sides instead of overlapping.
+// lng is scaled by cos(midLat) so the bow looks symmetric on screen (lng degrees
+// are compressed at NYC's latitude).
+function arcPoints(a, b, curvature = 0.18, n = 24) {
+  const midLat = (a[0] + b[0]) / 2;
+  const kx = Math.cos(midLat * Math.PI / 180) || 1;  // lng compression
+  // Work in a locally-equal-aspect plane: x = lng*kx, y = lat.
+  const ax = a[1] * kx, ay = a[0];
+  const bx = b[1] * kx, by = b[0];
+  const mx = (ax + bx) / 2, my = (ay + by) / 2;
+  const vx = bx - ax, vy = by - ay;
+  const len = Math.hypot(vx, vy) || 1e-9;
+  // Right-hand normal of travel direction (clockwise 90deg).
+  const nx = vy / len, ny = -vx / len;
+  const off = curvature * len;
+  const cx = mx + nx * off, cy = my + ny * off;  // control point
+  const pts = [];
+  for (let i = 0; i <= n; i++) {
+    const t = i / n, u = 1 - t;
+    const x = u * u * ax + 2 * u * t * cx + t * t * bx;
+    const y = u * u * ay + 2 * u * t * cy + t * t * by;
+    pts.push([y, x / kx]);  // back to [lat, lng]
+  }
+  return pts;
+}
+
+// Screen bearing (degrees, 0 = pointing right/east, clockwise) from p1 to p2,
+// both [lat,lng], correcting for lng compression so a CSS rotate() matches what's
+// drawn. Used to orient the destination arrowhead along the arc's tangent.
+function screenBearing(p1, p2) {
+  const kx = Math.cos(((p1[0] + p2[0]) / 2) * Math.PI / 180) || 1;
+  const dx = (p2[1] - p1[1]) * kx;
+  const dy = p2[0] - p1[0];
+  // Screen y grows downward, so negate dy to rotate in screen space.
+  return Math.atan2(-dy, dx) * 180 / Math.PI;
+}
+
 function initMap() {
   map = L.map("map", { scrollWheelZoom: false, zoomControl: true });
   // Same clean CARTO "Voyager" basemap the live page uses.
@@ -333,16 +372,17 @@ function renderMap(rides) {
   // Group identical start->end pairs so repeated corridors render darker/thicker
   // (each ride is still its own real trip; we just merge coincident lines).
   const pairs = new Map();
-  const visits = new Map();  // station name -> {count, lat, lng}
-  const bump = (s) => {
-    const v = visits.get(s.name) || { count: 0, lat: s.lat, lng: s.lng };
+  const visits = new Map();  // station name -> {count, starts, ends, lat, lng}
+  const bump = (s, role) => {
+    const v = visits.get(s.name) || { count: 0, starts: 0, ends: 0, lat: s.lat, lng: s.lng };
     v.count += 1;
+    v[role] += 1;  // "starts" or "ends"
     visits.set(s.name, v);
   };
 
   for (const r of rides) {
-    bump(r.start);
-    bump(r.end);
+    bump(r.start, "starts");
+    bump(r.end, "ends");
     if (isRoundTrip(r)) continue;
     const k = pairKey(r);
     const p = pairs.get(k) || {
@@ -353,28 +393,54 @@ function renderMap(rides) {
     pairs.set(k, p);
   }
 
+  // Each corridor as a curved arc (bowing right of travel) plus an arrowhead
+  // near the destination — A->B and B->A separate into two opposing arcs.
   const maxPair = Math.max(1, ...[...pairs.values()].map((p) => p.count));
   for (const p of pairs.values()) {
     const t = p.count / maxPair;            // 0..1
-    L.polyline([p.a, p.b], {
+    const pts = arcPoints(p.a, p.b);
+    L.polyline(pts, {
       color: "#0a5ad6",
       weight: 1.5 + 4 * t,
       opacity: 0.2 + 0.55 * t,
     }).bindPopup(`<strong>${p.label}</strong><br>${p.count} ride(s)`).addTo(rideLayer);
+
+    // Arrowhead: a fixed-size chevron sitting ~85% along the arc, rotated to the
+    // local tangent so it points at the destination. divIcon keeps it constant
+    // size across zoom (same trick as the station dots below).
+    const tip = pts[Math.round(pts.length * 0.85)];
+    const prev = pts[Math.round(pts.length * 0.78)];
+    const deg = screenBearing(prev, tip);
+    const arrow = L.divIcon({
+      className: "",
+      html: `<div class="cb-arrow" style="transform:rotate(${deg}deg)"></div>`,
+      iconSize: [14, 14],
+      iconAnchor: [7, 7],
+    });
+    L.marker(tip, { icon: arrow, interactive: false }).addTo(rideLayer);
   }
 
-  // Station dots sized by visit count.
+  // Station dots sized by visit count, colored by net flow: pink (--origin) when
+  // a station is mostly where rides start, blue (--ride) when mostly an end.
+  const lerpColor = (bal) => {
+    // bal in [-1,1]: +1 start-heavy -> pink #d6326b, -1 end-heavy -> blue #0a5ad6.
+    const o = [0xd6, 0x32, 0x6b], e = [0x0a, 0x5a, 0xd6];
+    const w = (bal + 1) / 2;  // 0 (end) .. 1 (start)
+    const ch = (i) => Math.round(e[i] + (o[i] - e[i]) * w);
+    return `rgb(${ch(0)},${ch(1)},${ch(2)})`;
+  };
   const maxVisits = Math.max(1, ...[...visits.values()].map((v) => v.count));
   for (const [name, v] of visits) {
     const size = 7 + 11 * (v.count / maxVisits);
+    const bal = (v.starts - v.ends) / (v.starts + v.ends || 1);
     const icon = L.divIcon({
       className: "",
-      html: `<div class="cb-station" style="width:${size}px;height:${size}px"></div>`,
+      html: `<div class="cb-station" style="width:${size}px;height:${size}px;background:${lerpColor(bal)}"></div>`,
       iconSize: [size, size],
       iconAnchor: [size / 2, size / 2],
     });
     L.marker([v.lat, v.lng], { icon })
-      .bindPopup(`<strong>${name}</strong><br>${v.count} visit(s)`)
+      .bindPopup(`<strong>${name}</strong><br>${v.starts} start(s) · ${v.ends} end(s) · ${v.count} visit(s)`)
       .addTo(stationLayer);
   }
 
