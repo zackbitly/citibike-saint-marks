@@ -413,7 +413,7 @@ function renderMap(rides) {
     const deg = screenBearing(prev, tip);
     const arrow = L.divIcon({
       className: "",
-      html: `<div class="cb-arrow" style="transform:rotate(${deg}deg)"></div>`,
+      html: `<div class="cb-arrow" style="transform:translate(-50%,-50%) rotate(${deg}deg)"></div>`,
       iconSize: [14, 14],
       iconAnchor: [7, 7],
     });
