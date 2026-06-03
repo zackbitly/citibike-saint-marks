@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "citibike-site",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8000"],
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "8000", "."],
       "port": 8000
     }
   ]

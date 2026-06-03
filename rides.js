@@ -20,6 +20,20 @@ function hourLabel(h) {
   return `${h12} ${ampm}`;
 }
 
+// Time-of-day buckets for the map filter. `test(hour)` partitions 0–23;
+// `short` is used in the summary line. Night wraps past midnight.
+const TIME_BUCKETS = [
+  { id: "morning", short: "morning", test: (h) => h >= 5 && h < 11 },
+  { id: "midday", short: "midday", test: (h) => h >= 11 && h < 16 },
+  { id: "evening", short: "evening", test: (h) => h >= 16 && h < 21 },
+  { id: "night", short: "night", test: (h) => h >= 21 || h < 5 },
+];
+function dayTest(dow, dayType) {
+  if (dayType === "weekday") return dow < 5;   // Mon–Fri
+  if (dayType === "weekend") return dow >= 5;   // Sat–Sun
+  return true;
+}
+
 function year(r) { return (r.date || "").slice(0, 4); }
 function ym(r) { return (r.date || "").slice(0, 7); }
 function pairKey(r) { return `${r.start.name} → ${r.end.name}`; }
@@ -69,15 +83,28 @@ async function loadRides() {
   // "the year" -> default to the most recent year with rides.
   sel.value = years.length ? years[years.length - 1] : "all";
 
-  sel.addEventListener("change", render);
+  for (const id of ["year-select", "time-select", "day-select"]) {
+    document.getElementById(id).addEventListener("change", render);
+  }
   render();
 }
 
 function render() {
-  const sel = document.getElementById("year-select").value;
-  const inRange = sel === "all" ? RIDES : RIDES.filter((r) => year(r) === sel);
+  const yearSel = document.getElementById("year-select").value;
+  const timeSel = document.getElementById("time-select").value;
+  const daySel = document.getElementById("day-select").value;
 
-  renderSummary(sel, inRange);
+  let inRange = RIDES;
+  if (yearSel !== "all") inRange = inRange.filter((r) => year(r) === yearSel);
+  if (timeSel !== "all") {
+    const bucket = TIME_BUCKETS.find((b) => b.id === timeSel);
+    inRange = inRange.filter((r) => r.hour != null && bucket.test(r.hour));
+  }
+  if (daySel !== "all") {
+    inRange = inRange.filter((r) => r.dow != null && dayTest(r.dow, daySel));
+  }
+
+  renderSummary({ yearSel, timeSel, daySel }, inRange);
   renderStats(inRange);
   renderTopRoutes(inRange);
   renderHourChart(inRange);
@@ -85,14 +112,16 @@ function render() {
   renderMap(inRange);
 }
 
-function renderSummary(sel, rides) {
+function renderSummary(f, rides) {
   const el = document.getElementById("rides-summary");
   if (RIDES.length === 0) {
     el.textContent = "No ride data yet — run build/build_rides.py against your export.";
     return;
   }
-  const scope = sel === "all" ? "all years" : sel;
-  el.textContent = `${rides.length.toLocaleString()} ride(s) · ${scope}.`;
+  const parts = [f.yearSel === "all" ? "all years" : f.yearSel];
+  if (f.timeSel !== "all") parts.push(TIME_BUCKETS.find((b) => b.id === f.timeSel).short);
+  if (f.daySel !== "all") parts.push(f.daySel === "weekday" ? "weekdays" : "weekends");
+  el.textContent = `${rides.length.toLocaleString()} ride(s) · ${parts.join(" · ")}.`;
 }
 
 function renderStats(rides) {
