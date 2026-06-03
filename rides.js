@@ -109,6 +109,7 @@ function render() {
   renderTopRoutes(inRange);
   renderHourChart(inRange);
   renderDowChart(inRange);
+  renderHeatmap(inRange);
   renderMap(inRange);
 }
 
@@ -246,6 +247,46 @@ function renderDowChart(rides) {
   for (const r of rides) if (r.dow != null) counts[r.dow] += 1;
   const items = counts.map((c, i) => ({ label: DOW_NAMES[i], count: c, full: DOW_FULL[i] }));
   renderBars("dow-chart", items);
+}
+
+// Day-of-week × hour-of-day heatmap (the 7×24 "commute fingerprint").
+// Cell shade scales with ride count; darker = more rides started then.
+function renderHeatmap(rides) {
+  const wrap = document.getElementById("heatmap");
+  wrap.innerHTML = "";
+
+  const m = Array.from({ length: 7 }, () => new Array(24).fill(0));
+  let total = 0;
+  for (const r of rides) {
+    if (r.dow == null || r.hour == null) continue;
+    m[r.dow][r.hour] += 1;
+    total += 1;
+  }
+  if (total === 0) {
+    wrap.innerHTML = `<p class="chart-empty">No time-of-day data for this range.</p>`;
+    return;
+  }
+  const max = Math.max(...m.map((row) => Math.max(...row)));
+
+  const ticks = { 0: "12a", 6: "6a", 12: "12p", 18: "6p", 23: "11p" };
+  const shade = (c) => (c ? `background:rgba(10,90,214,${(0.18 + 0.82 * (c / max)).toFixed(3)})` : "");
+
+  let html = `<div class="heat"><div class="heat-corner"></div>`;
+  for (let h = 0; h < 24; h++) html += `<div class="heat-htick">${ticks[h] || ""}</div>`;
+  for (let d = 0; d < 7; d++) {
+    html += `<div class="heat-day">${DOW_NAMES[d]}</div>`;
+    for (let h = 0; h < 24; h++) {
+      const c = m[d][h];
+      html += `<div class="heat-cell${c ? "" : " heat-empty"}" style="${shade(c)}"` +
+        ` title="${DOW_FULL[d]} ${hourLabel(h)}: ${c} ride(s)"></div>`;
+    }
+  }
+  html += `</div>`;
+
+  const steps = [0.18, 0.45, 0.7, 1.0]
+    .map((a) => `<i style="background:rgba(10,90,214,${a})"></i>`).join("");
+  html += `<div class="heat-legend"><span>less</span>${steps}<span>more</span></div>`;
+  wrap.innerHTML = html;
 }
 
 function renderMap(rides) {
