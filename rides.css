@@ -186,6 +186,27 @@ button:hover { filter: brightness(1.06); }
 }
 .chart-empty { color: var(--muted); font-size: 0.85rem; margin: 0; }
 
+/* Day-of-week × hour heatmap */
+.heatmap { margin-top: 22px; overflow-x: auto; }
+.heatmap h3 { margin: 0 0 12px; font-size: 0.95rem; }
+.heat {
+  display: grid;
+  grid-template-columns: 34px repeat(24, 1fr);
+  gap: 2px;
+  align-items: center;
+  min-width: 380px;
+}
+.heat-htick { font-size: 0.62rem; color: var(--muted); text-align: center; height: 1em; }
+.heat-day { font-size: 0.72rem; color: var(--muted); text-align: right; padding-right: 6px; }
+.heat-cell { height: 16px; border-radius: 3px; background: #eef0f3; }
+.heat-cell:hover { outline: 1px solid var(--ink); }
+.heat-empty { background: #f0f1f3; }
+.heat-legend {
+  display: flex; align-items: center; gap: 4px;
+  margin-top: 10px; font-size: 0.72rem; color: var(--muted);
+}
+.heat-legend i { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+
 @media (max-width: 560px) {
   .charts { grid-template-columns: 1fr; }
 }
