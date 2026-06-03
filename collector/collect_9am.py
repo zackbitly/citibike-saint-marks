@@ -2,11 +2,13 @@
 Collect one 9 AM (America/New_York) Citibike snapshot for the in-radius
 stations and append it to data/snapshots_9am.jsonl.
 
-Run by GitHub Actions at 12:55 and 13:55 UTC. GitHub cron is UTC and
+Run by GitHub Actions at 13:05 and 14:05 UTC. GitHub cron is UTC and
 DST-unaware; 9 AM New York is 13:00 UTC in summer (EDT) and 14:00 UTC in
-winter (EST). To stay correct year-round we run at both times but only
-WRITE when the current New York hour is 9 — so exactly one run per day
-records a snapshot. Pass --force to bypass the hour guard (manual tests).
+winter (EST). To stay correct year-round we fire in both the 13:00 and 14:00
+UTC hours but only WRITE when the current New York hour is 9 — so exactly one
+run per day records a snapshot. Firing at :05 leaves ~55 min of slack inside
+the 9 AM hour so GitHub's scheduled-run delay won't push us past the guard.
+Pass --force to bypass the hour guard (manual tests).
 
 Only real GBFS readings are stored: no estimating or inferring.
 """
