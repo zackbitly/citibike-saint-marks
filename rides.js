@@ -109,6 +109,7 @@ function render() {
   renderTopRoutes(inRange);
   renderHourChart(inRange);
   renderDowChart(inRange);
+  renderMonthChart(inRange);
   renderHeatmap(inRange);
   renderMap(inRange);
 }
@@ -213,12 +214,12 @@ function renderTopRoutes(rides) {
 
 // Vertical bar chart from divs (no chart lib). items: [{label, count, full}],
 // where `label` is the (possibly blank) axis tick and `full` the tooltip name.
-function renderBars(elId, items) {
+function renderBars(elId, items, emptyMsg = "No time-of-day data for this range.") {
   const el = document.getElementById(elId);
   el.innerHTML = "";
   const total = items.reduce((a, i) => a + i.count, 0);
   if (total === 0) {
-    el.innerHTML = `<p class="chart-empty">No time-of-day data for this range.</p>`;
+    el.innerHTML = `<p class="chart-empty">${emptyMsg}</p>`;
     return;
   }
   const max = Math.max(1, ...items.map((i) => i.count));
@@ -247,6 +248,41 @@ function renderDowChart(rides) {
   for (const r of rides) if (r.dow != null) counts[r.dow] += 1;
   const items = counts.map((c, i) => ({ label: DOW_NAMES[i], count: c, full: DOW_FULL[i] }));
   renderBars("dow-chart", items);
+}
+
+// Inclusive list of "YYYY-MM" strings from minYM to maxYM.
+function monthsBetween(minYM, maxYM) {
+  const out = [];
+  let [y, m] = minYM.split("-").map(Number);
+  const [y1, m1] = maxYM.split("-").map(Number);
+  while (y < y1 || (y === y1 && m <= m1)) {
+    out.push(`${y}-${String(m).padStart(2, "0")}`);
+    if (++m > 12) { m = 1; y++; }
+  }
+  return out;
+}
+
+// Rides per calendar month across the (filtered) range, gaps filled with 0.
+// Year is shown on January and the first bar to anchor multi-year spans.
+function renderMonthChart(rides) {
+  const counts = new Map();
+  let minYM = null, maxYM = null;
+  for (const r of rides) {
+    const k = ym(r);
+    if (!k) continue;
+    counts.set(k, (counts.get(k) || 0) + 1);
+    if (minYM === null || k < minYM) minYM = k;
+    if (maxYM === null || k > maxYM) maxYM = k;
+  }
+  if (minYM === null) { renderBars("month-chart", [], "No rides in this range."); return; }
+
+  const items = monthsBetween(minYM, maxYM).map((k, idx) => {
+    const [y, mo] = k.split("-");
+    const short = MONTH_NAMES[+mo - 1].slice(0, 3);
+    const label = (mo === "01" || idx === 0) ? `${short} ’${y.slice(2)}` : short;
+    return { label, count: counts.get(k) || 0, full: `${MONTH_NAMES[+mo - 1]} ${y}` };
+  });
+  renderBars("month-chart", items, "No rides in this range.");
 }
 
 // Day-of-week × hour-of-day heatmap (the 7×24 "commute fingerprint").
