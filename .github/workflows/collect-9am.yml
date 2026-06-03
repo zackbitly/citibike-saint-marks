@@ -2,13 +2,16 @@ name: Collect 9 AM snapshot
 
 # Records one Citibike snapshot at 9 AM America/New_York for the in-radius
 # stations. GitHub cron is UTC and does not observe DST, so we fire at both
-# 12:55 UTC (covers 9 AM EDT / summer) and 13:55 UTC (covers 9 AM EST / winter).
-# The script only writes when the local NY hour is 9, so exactly one run/day
-# appends a snapshot.
+# 13:05 UTC (lands at 9:05 AM EDT / summer) and 14:05 UTC (lands at 9:05 AM
+# EST / winter). The script only writes when the local NY hour is 9, so exactly
+# one run/day appends a snapshot. (9 AM ET is 13:00 UTC in summer, 14:00 in
+# winter, so the firing hour must be 13 and 14 UTC respectively.) Firing at :05
+# keeps the capture inside the 9 AM hour with ~55 min of slack, so GitHub's
+# usual scheduled-run delay won't push it past the hour guard.
 on:
   schedule:
-    - cron: "55 12 * * *"
-    - cron: "55 13 * * *"
+    - cron: "5 13 * * *"
+    - cron: "5 14 * * *"
   workflow_dispatch:
     inputs:
       force:
