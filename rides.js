@@ -267,11 +267,11 @@ function niceScale(max, targetTicks = 4) {
   return { top, ticks };
 }
 
-// Render a vertical bar chart with a quantitative y-axis (ride counts),
-// horizontal gridlines, and — when there are few enough bars to stay legible
-// — a value label on top of each bar. Every bar still shows its exact count
-// on hover via the title attribute.
-function renderBars(elId, items, emptyMsg = "No time-of-day data for this range.") {
+// Render a vertical bar chart with a quantitative y-axis (ride counts) and
+// horizontal gridlines. Pass `showValues: false` to suppress the per-bar count
+// labels on dense axes (e.g. the 24-hour chart); every bar still shows its exact
+// count on hover via the title attribute.
+function renderBars(elId, items, { emptyMsg = "No time-of-day data for this range.", showValues = true } = {}) {
   const el = document.getElementById(elId);
   el.innerHTML = "";
   const total = items.reduce((a, i) => a + i.count, 0);
@@ -281,7 +281,6 @@ function renderBars(elId, items, emptyMsg = "No time-of-day data for this range.
   }
   const max = Math.max(...items.map((i) => i.count));
   const { top, ticks } = niceScale(max);
-  const showValues = items.length <= 12; // skip labels on the dense 24-hour axis
 
   const yAxis = ticks.map((v) =>
     `<span class="y-tick" style="bottom:${(v / top) * 100}%">${v}</span>`
@@ -313,7 +312,7 @@ function renderHourChart(rides) {
   for (const r of rides) if (r.hour != null) counts[r.hour] += 1;
   const ticks = { 0: "12a", 6: "6a", 12: "12p", 18: "6p", 23: "11p" };
   const items = counts.map((c, h) => ({ label: ticks[h] || "", count: c, full: hourLabel(h) }));
-  renderBars("hour-chart", items);
+  renderBars("hour-chart", items, { showValues: false });
 }
 
 // Ride starts by day of week (Mon–Sun).
@@ -348,7 +347,7 @@ function renderMonthChart(rides) {
     if (minYM === null || k < minYM) minYM = k;
     if (maxYM === null || k > maxYM) maxYM = k;
   }
-  if (minYM === null) { renderBars("month-chart", [], "No rides in this range."); return; }
+  if (minYM === null) { renderBars("month-chart", [], { emptyMsg: "No rides in this range." }); return; }
 
   const items = monthsBetween(minYM, maxYM).map((k, idx) => {
     const [y, mo] = k.split("-");
@@ -356,7 +355,7 @@ function renderMonthChart(rides) {
     const label = (mo === "01" || idx === 0) ? `${short} ’${y.slice(2)}` : short;
     return { label, count: counts.get(k) || 0, full: `${MONTH_NAMES[+mo - 1]} ${y}` };
   });
-  renderBars("month-chart", items, "No rides in this range.");
+  renderBars("month-chart", items, { emptyMsg: "No rides in this range." });
 }
 
 // Day-of-week × hour-of-day heatmap (the 7×24 "commute fingerprint").
