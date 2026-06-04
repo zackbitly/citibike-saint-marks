@@ -253,6 +253,24 @@ function renderTopRoutes(rides) {
 
 // Vertical bar chart from divs (no chart lib). items: [{label, count, full}],
 // where `label` is the (possibly blank) axis tick and `full` the tooltip name.
+// Pick a "nice" axis top and evenly-spaced round ticks (1/2/5 × 10ⁿ steps)
+// so the y-axis reads in friendly whole numbers — e.g. 0, 5, 10, 15.
+function niceScale(max, targetTicks = 4) {
+  if (max <= 0) return { top: 1, ticks: [0, 1] };
+  const rawStep = max / targetTicks;
+  const mag = Math.pow(10, Math.floor(Math.log10(rawStep)));
+  const norm = rawStep / mag;
+  const step = (norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 5 ? 5 : 10) * mag;
+  const top = Math.ceil(max / step) * step;
+  const ticks = [];
+  for (let v = 0; v <= top + 1e-9; v += step) ticks.push(Math.round(v));
+  return { top, ticks };
+}
+
+// Render a vertical bar chart with a quantitative y-axis (ride counts),
+// horizontal gridlines, and — when there are few enough bars to stay legible
+// — a value label on top of each bar. Every bar still shows its exact count
+// on hover via the title attribute.
 function renderBars(elId, items, emptyMsg = "No time-of-day data for this range.") {
   const el = document.getElementById(elId);
   el.innerHTML = "";
@@ -261,14 +279,31 @@ function renderBars(elId, items, emptyMsg = "No time-of-day data for this range.
     el.innerHTML = `<p class="chart-empty">${emptyMsg}</p>`;
     return;
   }
-  const max = Math.max(1, ...items.map((i) => i.count));
-  el.innerHTML = items.map((i) => {
-    const h = i.count ? Math.max(3, Math.round(100 * i.count / max)) : 0;
+  const max = Math.max(...items.map((i) => i.count));
+  const { top, ticks } = niceScale(max);
+  const showValues = items.length <= 12; // skip labels on the dense 24-hour axis
+
+  const yAxis = ticks.map((v) =>
+    `<span class="y-tick" style="bottom:${(v / top) * 100}%">${v}</span>`
+  ).join("");
+  const grid = ticks.map((v) =>
+    `<div class="gridline${v === 0 ? " gridline-base" : ""}" style="bottom:${(v / top) * 100}%"></div>`
+  ).join("");
+  const bars = items.map((i) => {
+    const h = i.count ? Math.max(2, 100 * i.count / top) : 0;
+    const value = showValues && i.count ? `<span class="bar-value">${i.count}</span>` : "";
     return `<div class="bar" title="${i.full}: ${i.count} ride(s)">` +
-      `<div class="bar-track"><div class="bar-fill" style="height:${h}%"></div></div>` +
+      `<div class="bar-track"><div class="bar-fill" style="height:${h}%">${value}</div></div>` +
       `<div class="bar-label">${i.label}</div>` +
     `</div>`;
   }).join("");
+
+  el.innerHTML =
+    `<div class="y-axis" aria-hidden="true">${yAxis}</div>` +
+    `<div class="bars-wrap">` +
+      `<div class="gridlines">${grid}</div>` +
+      `<div class="bars-row">${bars}</div>` +
+    `</div>`;
 }
 
 // Ride starts by hour of day (0–23). Only a few hours are labelled to keep the
