@@ -25,7 +25,8 @@
     "2026-01",
     "2026-02",
     "2026-03",
-    "2026-04"
+    "2026-04",
+    "2026-05"
   ],
   "daily": [
     {
@@ -17931,6 +17932,1416 @@
       "station": "Sterling Pl & Bedford Ave",
       "out": 68,
       "in": 76
+    },
+    {
+      "date": "2026-05-01",
+      "station": "Bedford Ave & Bergen St",
+      "out": 88,
+      "in": 83
+    },
+    {
+      "date": "2026-05-01",
+      "station": "Dean St & Franklin Ave",
+      "out": 124,
+      "in": 127
+    },
+    {
+      "date": "2026-05-01",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 93,
+      "in": 96
+    },
+    {
+      "date": "2026-05-01",
+      "station": "New York Ave & St Marks Ave",
+      "out": 67,
+      "in": 45
+    },
+    {
+      "date": "2026-05-01",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 64,
+      "in": 70
+    },
+    {
+      "date": "2026-05-01",
+      "station": "Park Pl & Franklin Ave",
+      "out": 114,
+      "in": 104
+    },
+    {
+      "date": "2026-05-01",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 75,
+      "in": 78
+    },
+    {
+      "date": "2026-05-01",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 87,
+      "in": 75
+    },
+    {
+      "date": "2026-05-02",
+      "station": "Bedford Ave & Bergen St",
+      "out": 115,
+      "in": 112
+    },
+    {
+      "date": "2026-05-02",
+      "station": "Dean St & Franklin Ave",
+      "out": 126,
+      "in": 120
+    },
+    {
+      "date": "2026-05-02",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 127,
+      "in": 128
+    },
+    {
+      "date": "2026-05-02",
+      "station": "New York Ave & St Marks Ave",
+      "out": 82,
+      "in": 72
+    },
+    {
+      "date": "2026-05-02",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 89,
+      "in": 94
+    },
+    {
+      "date": "2026-05-02",
+      "station": "Park Pl & Franklin Ave",
+      "out": 125,
+      "in": 127
+    },
+    {
+      "date": "2026-05-02",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 87,
+      "in": 69
+    },
+    {
+      "date": "2026-05-02",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 106,
+      "in": 101
+    },
+    {
+      "date": "2026-05-03",
+      "station": "Bedford Ave & Bergen St",
+      "out": 65,
+      "in": 70
+    },
+    {
+      "date": "2026-05-03",
+      "station": "Dean St & Franklin Ave",
+      "out": 118,
+      "in": 129
+    },
+    {
+      "date": "2026-05-03",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 89,
+      "in": 87
+    },
+    {
+      "date": "2026-05-03",
+      "station": "New York Ave & St Marks Ave",
+      "out": 68,
+      "in": 69
+    },
+    {
+      "date": "2026-05-03",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 74,
+      "in": 64
+    },
+    {
+      "date": "2026-05-03",
+      "station": "Park Pl & Franklin Ave",
+      "out": 116,
+      "in": 111
+    },
+    {
+      "date": "2026-05-03",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 41,
+      "in": 48
+    },
+    {
+      "date": "2026-05-03",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 75,
+      "in": 84
+    },
+    {
+      "date": "2026-05-04",
+      "station": "Bedford Ave & Bergen St",
+      "out": 63,
+      "in": 76
+    },
+    {
+      "date": "2026-05-04",
+      "station": "Dean St & Franklin Ave",
+      "out": 124,
+      "in": 124
+    },
+    {
+      "date": "2026-05-04",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 75,
+      "in": 81
+    },
+    {
+      "date": "2026-05-04",
+      "station": "New York Ave & St Marks Ave",
+      "out": 60,
+      "in": 67
+    },
+    {
+      "date": "2026-05-04",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 78,
+      "in": 77
+    },
+    {
+      "date": "2026-05-04",
+      "station": "Park Pl & Franklin Ave",
+      "out": 61,
+      "in": 70
+    },
+    {
+      "date": "2026-05-04",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 61,
+      "in": 76
+    },
+    {
+      "date": "2026-05-04",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 77,
+      "in": 90
+    },
+    {
+      "date": "2026-05-05",
+      "station": "Bedford Ave & Bergen St",
+      "out": 92,
+      "in": 94
+    },
+    {
+      "date": "2026-05-05",
+      "station": "Dean St & Franklin Ave",
+      "out": 112,
+      "in": 112
+    },
+    {
+      "date": "2026-05-05",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 98,
+      "in": 104
+    },
+    {
+      "date": "2026-05-05",
+      "station": "New York Ave & St Marks Ave",
+      "out": 66,
+      "in": 60
+    },
+    {
+      "date": "2026-05-05",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 65,
+      "in": 70
+    },
+    {
+      "date": "2026-05-05",
+      "station": "Park Pl & Franklin Ave",
+      "out": 90,
+      "in": 97
+    },
+    {
+      "date": "2026-05-05",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 89,
+      "in": 88
+    },
+    {
+      "date": "2026-05-05",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 108,
+      "in": 108
+    },
+    {
+      "date": "2026-05-06",
+      "station": "Bedford Ave & Bergen St",
+      "out": 68,
+      "in": 56
+    },
+    {
+      "date": "2026-05-06",
+      "station": "Dean St & Franklin Ave",
+      "out": 105,
+      "in": 107
+    },
+    {
+      "date": "2026-05-06",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 63,
+      "in": 48
+    },
+    {
+      "date": "2026-05-06",
+      "station": "New York Ave & St Marks Ave",
+      "out": 57,
+      "in": 52
+    },
+    {
+      "date": "2026-05-06",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 66,
+      "in": 70
+    },
+    {
+      "date": "2026-05-06",
+      "station": "Park Pl & Franklin Ave",
+      "out": 67,
+      "in": 53
+    },
+    {
+      "date": "2026-05-06",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 60,
+      "in": 59
+    },
+    {
+      "date": "2026-05-06",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 71,
+      "in": 54
+    },
+    {
+      "date": "2026-05-07",
+      "station": "Bedford Ave & Bergen St",
+      "out": 89,
+      "in": 93
+    },
+    {
+      "date": "2026-05-07",
+      "station": "Dean St & Franklin Ave",
+      "out": 97,
+      "in": 97
+    },
+    {
+      "date": "2026-05-07",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 101,
+      "in": 102
+    },
+    {
+      "date": "2026-05-07",
+      "station": "New York Ave & St Marks Ave",
+      "out": 55,
+      "in": 59
+    },
+    {
+      "date": "2026-05-07",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 78,
+      "in": 71
+    },
+    {
+      "date": "2026-05-07",
+      "station": "Park Pl & Franklin Ave",
+      "out": 80,
+      "in": 93
+    },
+    {
+      "date": "2026-05-07",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 64,
+      "in": 61
+    },
+    {
+      "date": "2026-05-07",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 71,
+      "in": 76
+    },
+    {
+      "date": "2026-05-08",
+      "station": "Bedford Ave & Bergen St",
+      "out": 101,
+      "in": 97
+    },
+    {
+      "date": "2026-05-08",
+      "station": "Dean St & Franklin Ave",
+      "out": 118,
+      "in": 114
+    },
+    {
+      "date": "2026-05-08",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 117,
+      "in": 100
+    },
+    {
+      "date": "2026-05-08",
+      "station": "New York Ave & St Marks Ave",
+      "out": 71,
+      "in": 58
+    },
+    {
+      "date": "2026-05-08",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 87,
+      "in": 93
+    },
+    {
+      "date": "2026-05-08",
+      "station": "Park Pl & Franklin Ave",
+      "out": 95,
+      "in": 89
+    },
+    {
+      "date": "2026-05-08",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 82,
+      "in": 72
+    },
+    {
+      "date": "2026-05-08",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 106,
+      "in": 104
+    },
+    {
+      "date": "2026-05-09",
+      "station": "Bedford Ave & Bergen St",
+      "out": 70,
+      "in": 66
+    },
+    {
+      "date": "2026-05-09",
+      "station": "Dean St & Franklin Ave",
+      "out": 82,
+      "in": 87
+    },
+    {
+      "date": "2026-05-09",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 67,
+      "in": 77
+    },
+    {
+      "date": "2026-05-09",
+      "station": "New York Ave & St Marks Ave",
+      "out": 66,
+      "in": 45
+    },
+    {
+      "date": "2026-05-09",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 66,
+      "in": 59
+    },
+    {
+      "date": "2026-05-09",
+      "station": "Park Pl & Franklin Ave",
+      "out": 85,
+      "in": 84
+    },
+    {
+      "date": "2026-05-09",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 67,
+      "in": 75
+    },
+    {
+      "date": "2026-05-09",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 73,
+      "in": 75
+    },
+    {
+      "date": "2026-05-10",
+      "station": "Bedford Ave & Bergen St",
+      "out": 67,
+      "in": 67
+    },
+    {
+      "date": "2026-05-10",
+      "station": "Dean St & Franklin Ave",
+      "out": 117,
+      "in": 121
+    },
+    {
+      "date": "2026-05-10",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 87,
+      "in": 92
+    },
+    {
+      "date": "2026-05-10",
+      "station": "New York Ave & St Marks Ave",
+      "out": 56,
+      "in": 54
+    },
+    {
+      "date": "2026-05-10",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 75,
+      "in": 73
+    },
+    {
+      "date": "2026-05-10",
+      "station": "Park Pl & Franklin Ave",
+      "out": 124,
+      "in": 132
+    },
+    {
+      "date": "2026-05-10",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 77,
+      "in": 71
+    },
+    {
+      "date": "2026-05-10",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 71,
+      "in": 78
+    },
+    {
+      "date": "2026-05-11",
+      "station": "Bedford Ave & Bergen St",
+      "out": 64,
+      "in": 78
+    },
+    {
+      "date": "2026-05-11",
+      "station": "Dean St & Franklin Ave",
+      "out": 112,
+      "in": 112
+    },
+    {
+      "date": "2026-05-11",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 71,
+      "in": 66
+    },
+    {
+      "date": "2026-05-11",
+      "station": "New York Ave & St Marks Ave",
+      "out": 46,
+      "in": 52
+    },
+    {
+      "date": "2026-05-11",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 72,
+      "in": 81
+    },
+    {
+      "date": "2026-05-11",
+      "station": "Park Pl & Franklin Ave",
+      "out": 88,
+      "in": 77
+    },
+    {
+      "date": "2026-05-11",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 63,
+      "in": 68
+    },
+    {
+      "date": "2026-05-11",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 79,
+      "in": 81
+    },
+    {
+      "date": "2026-05-12",
+      "station": "Bedford Ave & Bergen St",
+      "out": 85,
+      "in": 85
+    },
+    {
+      "date": "2026-05-12",
+      "station": "Dean St & Franklin Ave",
+      "out": 127,
+      "in": 125
+    },
+    {
+      "date": "2026-05-12",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 76,
+      "in": 76
+    },
+    {
+      "date": "2026-05-12",
+      "station": "New York Ave & St Marks Ave",
+      "out": 57,
+      "in": 51
+    },
+    {
+      "date": "2026-05-12",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 75,
+      "in": 76
+    },
+    {
+      "date": "2026-05-12",
+      "station": "Park Pl & Franklin Ave",
+      "out": 71,
+      "in": 79
+    },
+    {
+      "date": "2026-05-12",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 79,
+      "in": 77
+    },
+    {
+      "date": "2026-05-12",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 72,
+      "in": 68
+    },
+    {
+      "date": "2026-05-13",
+      "station": "Bedford Ave & Bergen St",
+      "out": 89,
+      "in": 88
+    },
+    {
+      "date": "2026-05-13",
+      "station": "Dean St & Franklin Ave",
+      "out": 117,
+      "in": 120
+    },
+    {
+      "date": "2026-05-13",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 80,
+      "in": 88
+    },
+    {
+      "date": "2026-05-13",
+      "station": "New York Ave & St Marks Ave",
+      "out": 50,
+      "in": 53
+    },
+    {
+      "date": "2026-05-13",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 64,
+      "in": 60
+    },
+    {
+      "date": "2026-05-13",
+      "station": "Park Pl & Franklin Ave",
+      "out": 80,
+      "in": 80
+    },
+    {
+      "date": "2026-05-13",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 74,
+      "in": 80
+    },
+    {
+      "date": "2026-05-13",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 92,
+      "in": 95
+    },
+    {
+      "date": "2026-05-14",
+      "station": "Bedford Ave & Bergen St",
+      "out": 96,
+      "in": 85
+    },
+    {
+      "date": "2026-05-14",
+      "station": "Dean St & Franklin Ave",
+      "out": 133,
+      "in": 133
+    },
+    {
+      "date": "2026-05-14",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 97,
+      "in": 89
+    },
+    {
+      "date": "2026-05-14",
+      "station": "New York Ave & St Marks Ave",
+      "out": 57,
+      "in": 61
+    },
+    {
+      "date": "2026-05-14",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 61,
+      "in": 65
+    },
+    {
+      "date": "2026-05-14",
+      "station": "Park Pl & Franklin Ave",
+      "out": 101,
+      "in": 97
+    },
+    {
+      "date": "2026-05-14",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 73,
+      "in": 72
+    },
+    {
+      "date": "2026-05-14",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 93,
+      "in": 86
+    },
+    {
+      "date": "2026-05-15",
+      "station": "Bedford Ave & Bergen St",
+      "out": 84,
+      "in": 90
+    },
+    {
+      "date": "2026-05-15",
+      "station": "Dean St & Franklin Ave",
+      "out": 145,
+      "in": 143
+    },
+    {
+      "date": "2026-05-15",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 93,
+      "in": 92
+    },
+    {
+      "date": "2026-05-15",
+      "station": "New York Ave & St Marks Ave",
+      "out": 56,
+      "in": 47
+    },
+    {
+      "date": "2026-05-15",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 94,
+      "in": 91
+    },
+    {
+      "date": "2026-05-15",
+      "station": "Park Pl & Franklin Ave",
+      "out": 108,
+      "in": 113
+    },
+    {
+      "date": "2026-05-15",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 92,
+      "in": 91
+    },
+    {
+      "date": "2026-05-15",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 104,
+      "in": 103
+    },
+    {
+      "date": "2026-05-16",
+      "station": "Bedford Ave & Bergen St",
+      "out": 118,
+      "in": 125
+    },
+    {
+      "date": "2026-05-16",
+      "station": "Dean St & Franklin Ave",
+      "out": 161,
+      "in": 167
+    },
+    {
+      "date": "2026-05-16",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 151,
+      "in": 162
+    },
+    {
+      "date": "2026-05-16",
+      "station": "New York Ave & St Marks Ave",
+      "out": 77,
+      "in": 79
+    },
+    {
+      "date": "2026-05-16",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 85,
+      "in": 86
+    },
+    {
+      "date": "2026-05-16",
+      "station": "Park Pl & Franklin Ave",
+      "out": 200,
+      "in": 190
+    },
+    {
+      "date": "2026-05-16",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 110,
+      "in": 104
+    },
+    {
+      "date": "2026-05-16",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 136,
+      "in": 139
+    },
+    {
+      "date": "2026-05-17",
+      "station": "Bedford Ave & Bergen St",
+      "out": 89,
+      "in": 89
+    },
+    {
+      "date": "2026-05-17",
+      "station": "Dean St & Franklin Ave",
+      "out": 145,
+      "in": 146
+    },
+    {
+      "date": "2026-05-17",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 109,
+      "in": 113
+    },
+    {
+      "date": "2026-05-17",
+      "station": "New York Ave & St Marks Ave",
+      "out": 70,
+      "in": 68
+    },
+    {
+      "date": "2026-05-17",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 94,
+      "in": 99
+    },
+    {
+      "date": "2026-05-17",
+      "station": "Park Pl & Franklin Ave",
+      "out": 167,
+      "in": 166
+    },
+    {
+      "date": "2026-05-17",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 103,
+      "in": 112
+    },
+    {
+      "date": "2026-05-17",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 113,
+      "in": 119
+    },
+    {
+      "date": "2026-05-18",
+      "station": "Bedford Ave & Bergen St",
+      "out": 83,
+      "in": 81
+    },
+    {
+      "date": "2026-05-18",
+      "station": "Dean St & Franklin Ave",
+      "out": 141,
+      "in": 141
+    },
+    {
+      "date": "2026-05-18",
+      "station": "Franklin Ave & St Marks Ave",
+      "out": 8,
+      "in": 3
+    },
+    {
+      "date": "2026-05-18",
+      "station": "New York Ave & St Marks Ave",
+      "out": 57,
+      "in": 64
+    },
+    {
+      "date": "2026-05-18",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 60,
+      "in": 67
+    },
+    {
+      "date": "2026-05-18",
+      "station": "Park Pl & Franklin Ave",
+      "out": 130,
+      "in": 142
+    },
+    {
+      "date": "2026-05-18",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 69,
+      "in": 70
+    },
+    {
+      "date": "2026-05-18",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 91,
+      "in": 97
+    },
+    {
+      "date": "2026-05-19",
+      "station": "Bedford Ave & Bergen St",
+      "out": 98,
+      "in": 102
+    },
+    {
+      "date": "2026-05-19",
+      "station": "Dean St & Franklin Ave",
+      "out": 155,
+      "in": 155
+    },
+    {
+      "date": "2026-05-19",
+      "station": "New York Ave & St Marks Ave",
+      "out": 64,
+      "in": 55
+    },
+    {
+      "date": "2026-05-19",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 87,
+      "in": 84
+    },
+    {
+      "date": "2026-05-19",
+      "station": "Park Pl & Franklin Ave",
+      "out": 106,
+      "in": 106
+    },
+    {
+      "date": "2026-05-19",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 90,
+      "in": 92
+    },
+    {
+      "date": "2026-05-19",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 103,
+      "in": 105
+    },
+    {
+      "date": "2026-05-20",
+      "station": "Bedford Ave & Bergen St",
+      "out": 83,
+      "in": 77
+    },
+    {
+      "date": "2026-05-20",
+      "station": "Dean St & Franklin Ave",
+      "out": 116,
+      "in": 117
+    },
+    {
+      "date": "2026-05-20",
+      "station": "New York Ave & St Marks Ave",
+      "out": 57,
+      "in": 44
+    },
+    {
+      "date": "2026-05-20",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 82,
+      "in": 75
+    },
+    {
+      "date": "2026-05-20",
+      "station": "Park Pl & Franklin Ave",
+      "out": 111,
+      "in": 112
+    },
+    {
+      "date": "2026-05-20",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 69,
+      "in": 62
+    },
+    {
+      "date": "2026-05-20",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 67,
+      "in": 57
+    },
+    {
+      "date": "2026-05-21",
+      "station": "Bedford Ave & Bergen St",
+      "out": 80,
+      "in": 78
+    },
+    {
+      "date": "2026-05-21",
+      "station": "Dean St & Franklin Ave",
+      "out": 106,
+      "in": 103
+    },
+    {
+      "date": "2026-05-21",
+      "station": "New York Ave & St Marks Ave",
+      "out": 46,
+      "in": 50
+    },
+    {
+      "date": "2026-05-21",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 74,
+      "in": 77
+    },
+    {
+      "date": "2026-05-21",
+      "station": "Park Pl & Franklin Ave",
+      "out": 102,
+      "in": 103
+    },
+    {
+      "date": "2026-05-21",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 65,
+      "in": 60
+    },
+    {
+      "date": "2026-05-21",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 79,
+      "in": 79
+    },
+    {
+      "date": "2026-05-22",
+      "station": "Bedford Ave & Bergen St",
+      "out": 75,
+      "in": 71
+    },
+    {
+      "date": "2026-05-22",
+      "station": "Dean St & Franklin Ave",
+      "out": 130,
+      "in": 128
+    },
+    {
+      "date": "2026-05-22",
+      "station": "New York Ave & St Marks Ave",
+      "out": 65,
+      "in": 55
+    },
+    {
+      "date": "2026-05-22",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 85,
+      "in": 87
+    },
+    {
+      "date": "2026-05-22",
+      "station": "Park Pl & Franklin Ave",
+      "out": 136,
+      "in": 132
+    },
+    {
+      "date": "2026-05-22",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 67,
+      "in": 73
+    },
+    {
+      "date": "2026-05-22",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 76,
+      "in": 69
+    },
+    {
+      "date": "2026-05-23",
+      "station": "Bedford Ave & Bergen St",
+      "out": 39,
+      "in": 31
+    },
+    {
+      "date": "2026-05-23",
+      "station": "Dean St & Franklin Ave",
+      "out": 63,
+      "in": 63
+    },
+    {
+      "date": "2026-05-23",
+      "station": "New York Ave & St Marks Ave",
+      "out": 32,
+      "in": 29
+    },
+    {
+      "date": "2026-05-23",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 34,
+      "in": 30
+    },
+    {
+      "date": "2026-05-23",
+      "station": "Park Pl & Franklin Ave",
+      "out": 54,
+      "in": 56
+    },
+    {
+      "date": "2026-05-23",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 38,
+      "in": 26
+    },
+    {
+      "date": "2026-05-23",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 41,
+      "in": 34
+    },
+    {
+      "date": "2026-05-24",
+      "station": "Bedford Ave & Bergen St",
+      "out": 53,
+      "in": 39
+    },
+    {
+      "date": "2026-05-24",
+      "station": "Dean St & Franklin Ave",
+      "out": 51,
+      "in": 56
+    },
+    {
+      "date": "2026-05-24",
+      "station": "New York Ave & St Marks Ave",
+      "out": 37,
+      "in": 28
+    },
+    {
+      "date": "2026-05-24",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 25,
+      "in": 30
+    },
+    {
+      "date": "2026-05-24",
+      "station": "Park Pl & Franklin Ave",
+      "out": 58,
+      "in": 56
+    },
+    {
+      "date": "2026-05-24",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 19,
+      "in": 30
+    },
+    {
+      "date": "2026-05-24",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 36,
+      "in": 34
+    },
+    {
+      "date": "2026-05-25",
+      "station": "Bedford Ave & Bergen St",
+      "out": 68,
+      "in": 84
+    },
+    {
+      "date": "2026-05-25",
+      "station": "Dean St & Franklin Ave",
+      "out": 139,
+      "in": 142
+    },
+    {
+      "date": "2026-05-25",
+      "station": "New York Ave & St Marks Ave",
+      "out": 66,
+      "in": 68
+    },
+    {
+      "date": "2026-05-25",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 65,
+      "in": 51
+    },
+    {
+      "date": "2026-05-25",
+      "station": "Park Pl & Franklin Ave",
+      "out": 124,
+      "in": 131
+    },
+    {
+      "date": "2026-05-25",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 94,
+      "in": 96
+    },
+    {
+      "date": "2026-05-25",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 85,
+      "in": 77
+    },
+    {
+      "date": "2026-05-26",
+      "station": "Bedford Ave & Bergen St",
+      "out": 103,
+      "in": 91
+    },
+    {
+      "date": "2026-05-26",
+      "station": "Dean St & Franklin Ave",
+      "out": 129,
+      "in": 130
+    },
+    {
+      "date": "2026-05-26",
+      "station": "New York Ave & St Marks Ave",
+      "out": 61,
+      "in": 60
+    },
+    {
+      "date": "2026-05-26",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 67,
+      "in": 80
+    },
+    {
+      "date": "2026-05-26",
+      "station": "Park Pl & Franklin Ave",
+      "out": 121,
+      "in": 122
+    },
+    {
+      "date": "2026-05-26",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 64,
+      "in": 69
+    },
+    {
+      "date": "2026-05-26",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 98,
+      "in": 94
+    },
+    {
+      "date": "2026-05-27",
+      "station": "Bedford Ave & Bergen St",
+      "out": 96,
+      "in": 95
+    },
+    {
+      "date": "2026-05-27",
+      "station": "Dean St & Franklin Ave",
+      "out": 135,
+      "in": 134
+    },
+    {
+      "date": "2026-05-27",
+      "station": "New York Ave & St Marks Ave",
+      "out": 68,
+      "in": 75
+    },
+    {
+      "date": "2026-05-27",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 87,
+      "in": 93
+    },
+    {
+      "date": "2026-05-27",
+      "station": "Park Pl & Franklin Ave",
+      "out": 142,
+      "in": 140
+    },
+    {
+      "date": "2026-05-27",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 79,
+      "in": 83
+    },
+    {
+      "date": "2026-05-27",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 97,
+      "in": 94
+    },
+    {
+      "date": "2026-05-28",
+      "station": "Bedford Ave & Bergen St",
+      "out": 85,
+      "in": 89
+    },
+    {
+      "date": "2026-05-28",
+      "station": "Dean St & Franklin Ave",
+      "out": 140,
+      "in": 133
+    },
+    {
+      "date": "2026-05-28",
+      "station": "New York Ave & St Marks Ave",
+      "out": 66,
+      "in": 61
+    },
+    {
+      "date": "2026-05-28",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 109,
+      "in": 106
+    },
+    {
+      "date": "2026-05-28",
+      "station": "Park Pl & Franklin Ave",
+      "out": 130,
+      "in": 131
+    },
+    {
+      "date": "2026-05-28",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 97,
+      "in": 93
+    },
+    {
+      "date": "2026-05-28",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 96,
+      "in": 100
+    },
+    {
+      "date": "2026-05-29",
+      "station": "Bedford Ave & Bergen St",
+      "out": 98,
+      "in": 97
+    },
+    {
+      "date": "2026-05-29",
+      "station": "Dean St & Franklin Ave",
+      "out": 167,
+      "in": 166
+    },
+    {
+      "date": "2026-05-29",
+      "station": "New York Ave & St Marks Ave",
+      "out": 80,
+      "in": 73
+    },
+    {
+      "date": "2026-05-29",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 111,
+      "in": 103
+    },
+    {
+      "date": "2026-05-29",
+      "station": "Park Pl & Franklin Ave",
+      "out": 162,
+      "in": 151
+    },
+    {
+      "date": "2026-05-29",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 95,
+      "in": 96
+    },
+    {
+      "date": "2026-05-29",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 117,
+      "in": 111
+    },
+    {
+      "date": "2026-05-30",
+      "station": "Bedford Ave & Bergen St",
+      "out": 112,
+      "in": 95
+    },
+    {
+      "date": "2026-05-30",
+      "station": "Dean St & Franklin Ave",
+      "out": 201,
+      "in": 202
+    },
+    {
+      "date": "2026-05-30",
+      "station": "New York Ave & St Marks Ave",
+      "out": 68,
+      "in": 67
+    },
+    {
+      "date": "2026-05-30",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 102,
+      "in": 108
+    },
+    {
+      "date": "2026-05-30",
+      "station": "Park Pl & Franklin Ave",
+      "out": 192,
+      "in": 200
+    },
+    {
+      "date": "2026-05-30",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 95,
+      "in": 91
+    },
+    {
+      "date": "2026-05-30",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 112,
+      "in": 112
+    },
+    {
+      "date": "2026-05-31",
+      "station": "Bedford Ave & Bergen St",
+      "out": 108,
+      "in": 113
+    },
+    {
+      "date": "2026-05-31",
+      "station": "Dean St & Franklin Ave",
+      "out": 176,
+      "in": 177
+    },
+    {
+      "date": "2026-05-31",
+      "station": "New York Ave & St Marks Ave",
+      "out": 51,
+      "in": 64
+    },
+    {
+      "date": "2026-05-31",
+      "station": "Pacific St & Nostrand Ave",
+      "out": 92,
+      "in": 90
+    },
+    {
+      "date": "2026-05-31",
+      "station": "Park Pl & Franklin Ave",
+      "out": 171,
+      "in": 172
+    },
+    {
+      "date": "2026-05-31",
+      "station": "Prospect Pl & Nostrand Ave",
+      "out": 83,
+      "in": 91
+    },
+    {
+      "date": "2026-05-31",
+      "station": "Sterling Pl & Bedford Ave",
+      "out": 106,
+      "in": 117
     }
   ]
 }
