@@ -1,275 +1,288 @@
+/* ============================================================================
+   My Citibike rides — Citi Bike inspired theme (matches styles.css)
+   Self-contained. All rides.js hooks preserved: #year-select/#time-select/
+   #day-select, #rides-summary, #stats(.stat/.value/.label/.sub-value), #map,
+   .legend(.swatch/.dot), #top-routes(.routes-table), .bars charts (.y-axis/
+   .y-tick/.bars-wrap/.gridlines/.gridline/.bar-fill/.chart-empty), #heatmap(.heat),
+   .cb-station, .cb-arrow.
+   ============================================================================ */
+
 :root {
-  --bg: #f5f6f8;
-  --card: #ffffff;
-  --ink: #1a1d21;
-  --muted: #6b7280;
-  --line: #e5e7eb;
-  --accent: #0a5ad6;
-  --ride: #0a5ad6;
-  --origin: #d6326b;
+  --cb-blue:        #1A66B0;
+  --cb-blue-dark:   #134E86;
+  --cb-blue-tint:   #E8F1FA;
+  --cb-blue-line:   #C6DCF0;
+  --cb-red:         #E0301E;
+
+  --ink:            #16202E;
+  --ink-subtle:     #586172;
+  --bg:             #EEF2F6;
+  --surface:        #FFFFFF;
+  --line:           #DFE5EC;
+  --line-strong:    #CAD3DE;
+
+  /* used by chart bars, station dots, arc legend swatch, heatmap */
+  --ride:   #1A66B0;
+  --origin: #E0301E;
+
+  --radius-card: 14px;
+  --radius-ctrl: 9px;
+  --shadow-card: 0 1px 2px rgba(16,32,46,0.06), 0 6px 18px rgba(16,32,46,0.06);
+  --shadow-pop:  0 6px 24px rgba(16,32,46,0.16);
+
+  --font: 'Overpass', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
 
+html { font-size: 16px; }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font);
   background: var(--bg);
   color: var(--ink);
-  line-height: 1.45;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+.ic { fill: currentColor; flex: none; display: inline-block; }
 
-header {
-  padding: 22px 20px 14px;
-  max-width: 920px;
+/* ---------------- hero banner ---------------- */
+.hero { background: var(--cb-blue); color: #fff; }
+.hero-top {
+  max-width: 980px;
   margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
-header h1 { margin: 0; font-size: 1.5rem; }
-.sub { color: var(--muted); margin: 4px 0 0; font-size: 0.92rem; }
-.sub a { color: var(--accent); }
-
-main {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 0 20px 40px;
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+.brand-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 11px;
+  background: rgba(255,255,255,0.16); flex: none;
 }
+.brand-mark svg { width: 26px; height: 26px; fill: #fff; }
+.brand-name {
+  display: flex; align-items: baseline; gap: 8px;
+  font-size: 1.3rem; font-weight: 800; letter-spacing: -0.01em; line-height: 1;
+  white-space: nowrap;
+}
+.brand-word { white-space: nowrap; flex: none; }
+.brand-sub {
+  font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.7);
+  padding: 3px 8px; border: 1px solid rgba(255,255,255,0.4); border-radius: 999px;
+}
+.topbar-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.95rem; font-weight: 600; color: #fff; text-decoration: none;
+  padding: 9px 16px; border-radius: 999px; background: rgba(255,255,255,0.14);
+  white-space: nowrap; transition: background 120ms ease;
+}
+.topbar-link:hover { background: rgba(255,255,255,0.26); }
+.topbar-link .ic { width: 18px; height: 18px; }
 
-section {
-  background: var(--card);
+.hero-body { max-width: 980px; margin: 0 auto; padding: 18px 24px 48px; }
+.eyebrow {
+  display: inline-block; font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.8); margin-bottom: 12px;
+}
+.hero h1 { margin: 0; font-size: 2.9rem; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em; }
+.hero .sub { margin: 16px 0 0; max-width: 64ch; font-size: 1.18rem; line-height: 1.45; color: rgba(255,255,255,0.9); }
+.hero .sub a { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+/* ---------------- main + cards ---------------- */
+main { max-width: 980px; margin: 0 auto; padding: 0 24px 56px; }
+.card {
+  background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 16px 18px;
-  margin-top: 18px;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 26px 28px;
+  margin-top: 22px;
 }
+.card:first-child { margin-top: -28px; }
 
 .section-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
 }
-.section-head h2 { margin: 0; font-size: 1.15rem; }
+.section-title { display: flex; align-items: center; gap: 13px; flex: none; }
+.section-title h2 { margin: 0; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); white-space: nowrap; }
+.section-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 11px; flex: none;
+}
+.section-icon .ic { width: 22px; height: 22px; }
+.section-icon.live  { background: var(--cb-blue-tint); color: var(--cb-blue); }
+.section-icon.trips { background: #FDF1DC; color: #C77400; }
 
+/* ---------------- buttons (parity with index) ---------------- */
 button {
-  font: inherit;
-  border: 1px solid var(--accent);
-  background: var(--accent);
-  color: #fff;
-  border-radius: 8px;
-  padding: 6px 12px;
-  cursor: pointer;
+  font: inherit; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 7px;
+  border: 1px solid var(--cb-blue); background: var(--cb-blue); color: #fff;
+  border-radius: 999px; padding: 9px 18px; cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
 }
-button:hover { filter: brightness(1.06); }
+button:hover { background: var(--cb-blue-dark); border-color: var(--cb-blue-dark); }
+button:focus-visible { outline: 3px solid var(--cb-blue-line); outline-offset: 2px; }
 
-/* Stats strip */
+/* ---------------- stats strip ---------------- */
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-  margin-top: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
 }
 .stat {
-  background: #fafbfc;
+  background: #F5F8FB;
   border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 12px 14px;
+  border-radius: 12px;
+  padding: 15px 16px;
 }
-.stat .value { font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
-.stat .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); margin-top: 2px; }
-.stat .sub-value { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+.stat .value { font-size: 1.7rem; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--cb-blue); letter-spacing: -0.01em; }
+.stat .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: var(--ink-subtle); margin-top: 5px; }
+.stat .sub-value { font-size: 0.82rem; color: var(--ink-subtle); margin-top: 3px; }
 
+/* ---------------- map ---------------- */
 #map {
   height: 520px;
-  margin-top: 16px;
-  border-radius: 14px;
+  margin-top: 22px;
+  border-radius: var(--radius-ctrl);
   border: 1px solid var(--line);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   overflow: hidden;
   z-index: 0;
 }
-
-.leaflet-container { font: inherit; background: #eaeaea; }
+.leaflet-container { font: inherit; background: var(--line); }
 .leaflet-control-zoom a {
-  border-radius: 8px !important;
-  color: #3c4043;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
-  border: none;
+  border-radius: 8px !important; color: var(--ink);
+  box-shadow: var(--shadow-pop); border: none;
 }
 .leaflet-bar { border: none; box-shadow: none; }
-.leaflet-popup-content-wrapper {
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.18);
-}
-.leaflet-popup-content { margin: 12px 14px; font-size: 0.9rem; line-height: 1.5; }
+.leaflet-popup-content-wrapper { border-radius: 12px; box-shadow: var(--shadow-pop); }
+.leaflet-popup-content { margin: 13px 15px; font-size: 0.9rem; line-height: 1.5; }
+.leaflet-popup-content strong { font-weight: 700; }
 
+/* ---------------- legend ---------------- */
 .legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 12px;
-  font-size: 0.82rem;
-  color: var(--muted);
-  align-items: center;
+  display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 16px;
+  font-size: 0.9rem; font-weight: 500; color: var(--ink-subtle); align-items: center;
 }
 .legend i { font-style: normal; }
 .swatch {
-  display: inline-block;
-  width: 22px; height: 0;
-  border-top: 3px solid var(--ride);
-  vertical-align: 4px;
-  margin-right: 4px;
+  display: inline-block; width: 22px; height: 0;
+  border-top: 3px solid var(--ride); vertical-align: 4px; margin-right: 4px;
 }
-.dot {
-  display: inline-block;
-  width: 13px; height: 13px;
-  border-radius: 50%;
-  vertical-align: -2px;
-  margin-right: 3px;
-}
+.dot { display: inline-block; width: 13px; height: 13px; border-radius: 50%; vertical-align: -2px; margin-right: 3px; }
 .dot.station { background: var(--ride); border: 2px solid #fff; box-shadow: 0 0 0 1px var(--ride); }
 .dot.origin { background: var(--origin); border: 2px solid #fff; box-shadow: 0 0 0 1px var(--origin); }
 
-/* Station dots on the map (divIcon). Fill color is set inline per station. */
-.cb-station {
-  border-radius: 50%;
-  background: var(--ride);
-  border: 2px solid #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.35);
-}
-
-/* Directional arrowhead on each ride arc (divIcon). A CSS triangle pointing
-   right (east); centered on the icon anchor, then rotated inline (with a
-   translate(-50%,-50%) prefix) to the arc's tangent so its tip sits on the
-   curve and aims at the destination. Constant pixel size across zoom. */
+/* station dots + arrowheads (divIcons; fill/rotate set inline by JS) */
+.cb-station { border-radius: 50%; background: var(--ride); border: 2px solid #fff; box-shadow: 0 1px 3px rgba(16,32,46,0.4); }
 .cb-arrow {
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 0; height: 0;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
+  position: absolute; top: 50%; left: 50%; width: 0; height: 0;
+  border-top: 4px solid transparent; border-bottom: 4px solid transparent;
   border-left: 7px solid var(--ride);
   filter: drop-shadow(0 0 1px rgba(255,255,255,0.7));
 }
 
-.range-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-  margin-top: 12px;
+/* ---------------- range controls ---------------- */
+.range-controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.range-controls label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.9rem; font-weight: 600; color: var(--ink-subtle);
 }
-/* Top routes table */
-.routes { margin-top: 18px; }
-.routes h3 { margin: 0 0 8px; font-size: 0.95rem; }
-.routes-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-.routes-table th,
-.routes-table td { padding: 7px 8px; border-bottom: 1px solid var(--line); text-align: left; }
+.range-controls select {
+  font: inherit; font-size: 0.92rem; padding: 8px 11px;
+  border: 1px solid var(--line-strong); border-radius: 8px; background: #fff; color: var(--ink);
+}
+.range-controls select:focus-visible { outline: 3px solid var(--cb-blue-line); outline-offset: 1px; border-color: var(--cb-blue); }
+.range-summary { font-size: 0.9rem; font-weight: 500; color: var(--ink-subtle); }
+#rides-summary { margin-left: auto; }
+
+/* ---------------- top routes table ---------------- */
+.routes { margin-top: 24px; }
+.routes h3 { margin: 0 0 12px; font-size: 1.05rem; font-weight: 700; color: var(--ink); }
+.routes-table {
+  width: 100%; border-collapse: collapse; font-size: 0.92rem;
+  border: 1px solid var(--line); border-radius: var(--radius-ctrl); overflow: hidden;
+}
+.routes-table th, .routes-table td { padding: 11px 14px; border-bottom: 1px solid var(--line); text-align: left; }
 .routes-table th {
-  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em;
-  color: var(--muted); font-weight: 600;
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--ink-subtle); font-weight: 700; background: #F5F8FB;
 }
-.routes-table td.num,
-.routes-table th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.routes-table td.route { font-weight: 600; }
+.routes-table td.num, .routes-table th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.routes-table tbody tr { transition: background 120ms ease; }
+.routes-table tbody tr:hover { background: var(--cb-blue-tint); }
 .routes-table tbody tr:last-child td { border-bottom: none; }
 
-/* When-I-ride bar charts */
-.charts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  margin-top: 14px;
-}
-.chart h3 { margin: 0 0 12px; font-size: 0.95rem; }
-.chart-wide { margin-top: 22px; }
-.chart-first { margin-top: 14px; }
-/* Bar chart: y-axis + gridlines on the left, bars on the right. The track
-   area is 120px tall; the y-axis and gridlines are sized to match it so the
-   tick labels line up with the gridlines and the tops of the bars. */
+/* ---------------- when-I-ride bar charts ---------------- */
+.charts { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 18px; }
+.chart h3 { margin: 0 0 14px; font-size: 1.05rem; font-weight: 700; color: var(--ink); }
+.chart-wide { margin-top: 24px; }
+.chart-first { margin-top: 22px; }
 .bars { display: flex; align-items: flex-start; gap: 8px; }
-.y-axis { position: relative; width: 22px; height: 120px; flex: none; }
+.y-axis { position: relative; width: 24px; height: 120px; flex: none; }
 .y-tick {
-  position: absolute;
-  right: 0;
-  transform: translateY(50%);
-  font-size: 0.65rem;
-  line-height: 1;
-  color: var(--muted);
-  white-space: nowrap;
+  position: absolute; right: 0; transform: translateY(50%);
+  font-size: 0.65rem; line-height: 1; color: var(--ink-subtle); white-space: nowrap;
 }
 .bars-wrap { position: relative; flex: 1 1 0; min-width: 0; }
 .gridlines { position: absolute; left: 0; right: 0; top: 0; height: 120px; pointer-events: none; }
 .gridline { position: absolute; left: 0; right: 0; bottom: 0; border-top: 1px solid var(--line); }
-.gridline-base { border-top-color: #cbd0d8; }
+.gridline-base { border-top-color: var(--line-strong); }
 .bars-row { display: flex; align-items: flex-end; gap: 3px; position: relative; }
 .bar { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; min-width: 0; }
 .bar-track { width: 100%; height: 120px; display: flex; align-items: flex-end; }
 .bar-fill {
-  position: relative;
-  width: 72%;
-  margin: 0 auto;
-  background: var(--ride);
-  border-radius: 3px 3px 0 0;
-  opacity: 0.85;
+  position: relative; width: 72%; margin: 0 auto;
+  background: var(--ride); border-radius: 4px 4px 0 0; opacity: 0.88;
+  transition: opacity 120ms ease;
 }
 .bar:hover .bar-fill { opacity: 1; }
-.bar-value {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.66rem;
-  font-weight: 600;
-  color: var(--ink);
-  white-space: nowrap;
-}
-.bar-label {
-  margin-top: 6px;
-  font-size: 0.7rem;
-  color: var(--muted);
-  white-space: nowrap;
-  height: 1em;
-}
-.chart-empty { color: var(--muted); font-size: 0.85rem; margin: 0; }
+.bar-value { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-size: 0.66rem; font-weight: 700; color: var(--ink); white-space: nowrap; }
+.bar-label { margin-top: 6px; font-size: 0.7rem; color: var(--ink-subtle); white-space: nowrap; height: 1em; }
+.chart-empty { color: var(--ink-subtle); font-size: 0.9rem; margin: 0; }
 
-/* Day-of-week × hour heatmap */
-.heatmap { margin-top: 22px; overflow-x: auto; }
-.heatmap h3 { margin: 0 0 12px; font-size: 0.95rem; }
-.heat {
-  display: grid;
-  grid-template-columns: 34px repeat(24, 1fr);
-  gap: 2px;
-  align-items: center;
-  min-width: 380px;
-}
-.heat-htick { font-size: 0.62rem; color: var(--muted); text-align: center; height: 1em; }
-.heat-day { font-size: 0.72rem; color: var(--muted); text-align: right; padding-right: 6px; }
-.heat-cell { height: 16px; border-radius: 3px; background: #eef0f3; }
+/* ---------------- day × hour heatmap ---------------- */
+.heatmap { margin-top: 24px; overflow-x: auto; }
+.heatmap h3 { margin: 0 0 14px; font-size: 1.05rem; font-weight: 700; color: var(--ink); }
+.heat { display: grid; grid-template-columns: 34px repeat(24, 1fr); gap: 2px; align-items: center; min-width: 380px; }
+.heat-htick { font-size: 0.62rem; color: var(--ink-subtle); text-align: center; height: 1em; }
+.heat-day { font-size: 0.72rem; font-weight: 600; color: var(--ink-subtle); text-align: right; padding-right: 6px; }
+.heat-cell { height: 16px; border-radius: 3px; background: #EAEFF4; }
 .heat-cell:hover { outline: 1px solid var(--ink); }
-.heat-empty { background: #f0f1f3; }
-.heat-legend {
-  display: flex; align-items: center; gap: 4px;
-  margin-top: 10px; font-size: 0.72rem; color: var(--muted);
-}
+.heat-empty { background: #EEF2F6; }
+.heat-legend { display: flex; align-items: center; gap: 4px; margin-top: 12px; font-size: 0.72rem; color: var(--ink-subtle); }
 .heat-legend i { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
 
-@media (max-width: 560px) {
-  .charts { grid-template-columns: 1fr; }
-}
-
-.range-controls label { font-size: 0.88rem; color: var(--muted); }
-.range-controls select { font: inherit; padding: 5px 7px; border: 1px solid var(--line); border-radius: 7px; background: #fff; }
-.range-summary { font-size: 0.85rem; color: var(--muted); }
-
+/* ---------------- footer ---------------- */
 footer {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 0 20px 40px;
-  color: var(--muted);
-  font-size: 0.8rem;
+  max-width: 980px; margin: 0 auto; padding: 28px 24px 64px;
+  color: var(--ink-subtle); font-size: 0.82rem; line-height: 1.6;
 }
-footer a { color: var(--accent); }
+footer p { margin: 0; max-width: 90ch; }
+footer a { color: var(--cb-blue); font-weight: 600; }
 
-@media (max-width: 560px) {
+/* ---------------- responsive ---------------- */
+@media (max-width: 640px) {
+  .hero-top { padding: 14px 18px; }
+  .hero-body { padding: 14px 18px 40px; }
+  .hero h1 { font-size: 2rem; }
+  .hero .sub { font-size: 1.05rem; }
+  .brand-sub { display: none; }
+  main { padding: 0 18px 40px; }
+  .card { padding: 22px 18px; }
+  .card:first-child { margin-top: -24px; }
+  .section-title h2 { font-size: 1.3rem; }
+  #rides-summary { margin-left: 0; flex-basis: 100%; }
+  .charts { grid-template-columns: 1fr; }
   #map { height: 380px; }
 }
