@@ -378,7 +378,7 @@ function renderHeatmap(rides) {
   const max = Math.max(...m.map((row) => Math.max(...row)));
 
   const ticks = { 0: "12a", 6: "6a", 12: "12p", 18: "6p", 23: "11p" };
-  const shade = (c) => (c ? `background:rgba(10,90,214,${(0.18 + 0.82 * (c / max)).toFixed(3)})` : "");
+  const shade = (c) => (c ? `background:rgba(26,102,176,${(0.18 + 0.82 * (c / max)).toFixed(3)})` : "");
 
   let html = `<div class="heat"><div class="heat-corner"></div>`;
   for (let h = 0; h < 24; h++) html += `<div class="heat-htick">${ticks[h] || ""}</div>`;
@@ -393,7 +393,7 @@ function renderHeatmap(rides) {
   html += `</div>`;
 
   const steps = [0.18, 0.45, 0.7, 1.0]
-    .map((a) => `<i style="background:rgba(10,90,214,${a})"></i>`).join("");
+    .map((a) => `<i style="background:rgba(26,102,176,${a})"></i>`).join("");
   html += `<div class="heat-legend"><span>less</span>${steps}<span>more</span></div>`;
   wrap.innerHTML = html;
 }
@@ -434,7 +434,7 @@ function renderMap(rides) {
     const t = p.count / maxPair;            // 0..1
     const pts = arcPoints(p.a, p.b);
     L.polyline(pts, {
-      color: "#0a5ad6",
+      color: "#1A66B0",
       weight: 1.5 + 4 * t,
       opacity: 0.2 + 0.55 * t,
     }).bindPopup(`<strong>${p.label}</strong><br>${p.count} ride(s)`).addTo(rideLayer);
@@ -457,8 +457,8 @@ function renderMap(rides) {
   // Station dots sized by visit count, colored by net flow: pink (--origin) when
   // a station is mostly where rides start, blue (--ride) when mostly an end.
   const lerpColor = (bal) => {
-    // bal in [-1,1]: +1 start-heavy -> pink #d6326b, -1 end-heavy -> blue #0a5ad6.
-    const o = [0xd6, 0x32, 0x6b], e = [0x0a, 0x5a, 0xd6];
+    // bal in [-1,1]: +1 start-heavy -> Citi red #E0301E, -1 end-heavy -> Citi blue #1A66B0.
+    const o = [0xe0, 0x30, 0x1e], e = [0x1a, 0x66, 0xb0];
     const w = (bal + 1) / 2;  // 0 (end) .. 1 (start)
     const ch = (i) => Math.round(e[i] + (o[i] - e[i]) * w);
     return `rgb(${ch(0)},${ch(1)},${ch(2)})`;
